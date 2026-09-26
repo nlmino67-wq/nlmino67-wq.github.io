@@ -1,479 +1,451 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nico Tan Leonardia</title>
-<meta name="description" content="Nico Tan Leonardia: AI video producer and video editor. AI UGC ads, product-accurate AI video, faceless YouTube series and consistent AI characters, generated on my own RTX 4090 pipeline and cut like real ads.">
-<meta property="og:title" content="Nico Tan Leonardia · AI Video Producer &amp; Editor">
-<meta property="og:description" content="AI video that looks shot, with your product exactly right.">
+<title>Nico Tan Leonardia · AI Video Creator &amp; Editor for Ecommerce Ads</title>
+<meta name="description" content="AI video creator and editor Nico Tan Leonardia: AI UGC ads, product ads, 3D animated ads and faceless YouTube, plus real client edits including two shorts at 2.5M and 2.2M views. Hire me on Upwork.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nico Tan Leonardia · AI Video Creator &amp; Editor">
+<meta property="og:description" content="AI UGC ads, product ads and YouTube edits. Client shorts at 2.5M and 2.2M views.">
 <meta property="og:image" content="https://nlmino67-wq.github.io/p/reel_ai.jpg">
 <meta property="og:url" content="https://nlmino67-wq.github.io/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://nlmino67-wq.github.io/">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F8FAFC'/><path d='M12 9.5v13l10-6.5z' fill='%230F172A'/></svg>">
+<script>document.documentElement.classList.replace('no-js','js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,600;62..125,800&family=Space+Grotesk:wght@400;500;600&display=swap">
-<meta name="theme-color" content="#000000">
-<style>
-  /* Design system: ui-ux-pro-max "Minimalism & Swiss Style" (query: film video production studio cinematic dark).
-     Monochrome on black so the footage supplies all the colour. */
-  :root {
-    --ground: #000000;
-    --panel: #0B0B0C;
-    --ink: #FAFAFA;
-    --soft: #94A3B8;
-    --line: #1C1C1F;
-    --accent: #F8FAFC;
-    --on-accent: #0F172A;
-    --stage: #050506;
-    --font: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-    color-scheme: dark;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--ground); color: var(--ink); font: 400 17px/1.55 var(--font);
-    padding-inline: 16px; -webkit-font-smoothing: antialiased;
-  }
-  img, video { display: block; max-width: 100%; }
-  a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  .wrap { max-width: 1200px; margin: 0 auto; }
-
-  header.bar {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; display: flex; align-items: center;
-    justify-content: space-between; gap: 12px; padding-block: 12px;
-    background: color-mix(in srgb, var(--ground) 90%, transparent); backdrop-filter: blur(12px);
-  }
-  .name { font: 800 22px/1 var(--display); font-stretch: 112%; letter-spacing: -0.02em; text-decoration: none; }
-  .bar nav { display: flex; align-items: center; gap: 4px; }
-  .bar nav a.link { text-decoration: none; color: var(--soft); font-weight: 500; font-size: 15px; padding: 8px 12px; border-radius: 8px; }
-  .bar nav a.link:hover { color: var(--ink); }
-  .hire {
-    display: inline-flex; transition: opacity 160ms ease; align-items: center; gap: 8px; text-decoration: none; font: 600 15px/1 var(--font);
-    background: var(--accent); color: var(--on-accent); padding: 12px 16px; border-radius: 10px;
-  }
-  .hire[hidden] { display: none !important; }
-  .pill { font-weight: 600; font-size: 14px; color: var(--soft); padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; }
-
-  /* Hero */
-  .hero { padding-block: 28px 56px; display: grid; gap: 28px; }
-  .hero h1 {
-    margin: 0; font: 800 clamp(38px, 6vw, 72px)/1.0 var(--display); font-stretch: 108%; letter-spacing: -0.03em;
-    max-width: 16ch; text-wrap: balance;
-  }
-  .hero .sub { margin: 0; font-size: clamp(17px, 1.7vw, 20px); color: var(--soft); max-width: 58ch; }
-  .hero .sub b { color: var(--ink); font-weight: 600; }
-  .stage { position: relative; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); overflow: hidden; background: var(--stage); aspect-ratio: 16 / 9; }
-  .stage video { width: 100%; height: 100%; object-fit: cover; }
-  .sound {
-    position: absolute; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px;
-    font: 600 15px/1 var(--font); color: #111; background: #fff; border: 0; border-radius: 999px; padding: 12px 16px; cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  }
-  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: 600 16px/1 var(--font); padding: 14px 18px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
-  .btn.solid { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
-  .btn { transition: border-color 160ms ease, background-color 160ms ease; }
-  .btn:hover { border-color: var(--soft); }
-  .hire:hover { opacity: 0.88; }
-
-  /* Sections */
-  section.lane { padding-block: 88px; border-top: 1px solid var(--line); }
-  .lane-head { display: grid; gap: 8px; margin-bottom: 28px; max-width: 62ch; }
-  .lane-head h2 { margin: 0; font: 800 clamp(34px, 4.6vw, 60px)/1.0 var(--display); font-stretch: 104%; letter-spacing: -0.025em; text-wrap: balance; }
-  .lane-head p { margin: 0; color: var(--soft); }
-
-  .compare { display: grid; gap: 22px; }
-  .tile { display: grid; gap: 12px; }
-  .tile .frame { position: relative; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); overflow: hidden; background: var(--stage); cursor: pointer; border: 0; padding: 0; width: 100%; }
-  .tile .frame video { width: 100%; height: 100%; object-fit: cover; }
-  .tile .frame.w { aspect-ratio: 16 / 9; }
-  .tile .frame.v { aspect-ratio: 9 / 16; }
-  .tile h3 { margin: 0; font: 600 20px/1.25 var(--font); letter-spacing: -0.01em; }
-  .tile p { margin: 0; color: var(--soft); font-size: 15.5px; }
-  .open-hint {
-    position: absolute; left: 14px; bottom: 14px; font: 600 13.5px/1 var(--font); color: #fff; background: rgba(0, 0, 0, 0.55);
-    padding: 8px 12px; border-radius: 999px; backdrop-filter: blur(6px); pointer-events: none;
-  }
-  .compare-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-
-  .shorts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 40px; }
-  .shorts .tile .frame { max-width: 100%; }
-
-  .sub-head { display: grid; gap: 6px; margin: 64px 0 24px; max-width: 64ch; padding-top: 28px; border-top: 1px solid var(--line); }
-  .sub-head.first { margin-top: 8px; border-top: 0; padding-top: 0; }
-  .sub-head h3 { margin: 0; font: 600 13px/1.2 var(--font); letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
-  .sub-head p { margin: 0; font-size: 18px; }
-  .sub-head p b { font-weight: 600; }
-  .shorts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: calc((100% - 44px) * 2 / 3 + 22px); margin-top: 0; }
-  @media (max-width: 700px) { .shorts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; overflow: visible; } }
-  .shorts.four { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
-  .shorts.three-p { margin-top: 0; }
-  .tile .frame.p { aspect-ratio: 3 / 4; }
-  .statics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: 28px; }
-  .statics a { display: block; border-radius: 4px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
-  .statics img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
-  @media (max-width: 900px) { .statics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 900px) { .shorts.four { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; } }
-  .ai.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  @media (max-width: 900px) { .ai.three { grid-template-columns: minmax(0, 1fr); } }
-  .ai { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-
-  .offer { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
-  .stack { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin-top: 34px; border-top: 1px solid var(--line); }
-  .stack div { padding: 18px 18px 0 0; }
-  .stack h3 { margin: 0 0 6px; font: 600 16px/1.2 var(--font); }
-  .stack p { margin: 0; color: var(--soft); font-size: 14.5px; }
-  @media (max-width: 900px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .roles { margin: 0; font-weight: 500; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
-  .pl iframe { width: 100%; aspect-ratio: 16 / 9; max-height: 80vh; border: 0; border-radius: 12px; background: #000; }
-  .pl iframe[hidden], .pl video[hidden] { display: none; }
-  .offer div { padding: 22px 22px 22px 0; }
-  .offer div + div { padding-left: 22px; border-left: 1px solid var(--line); }
-  .offer h3 { margin: 0 0 8px; font: 600 20px/1.2 var(--font); }
-  .offer p { margin: 0; color: var(--soft); font-size: 15.5px; }
-
-  .closing { padding-block: 64px 48px; border-top: 1px solid var(--line); display: grid; gap: 18px; justify-items: start; }
-  .closing h2 { margin: 0; font: 800 clamp(30px, 4.4vw, 54px)/1.02 var(--display); font-stretch: 108%; letter-spacing: -0.03em; max-width: 18ch; text-wrap: balance; }
-  footer { padding-block: 20px 40px; color: var(--soft); font-size: 14px; border-top: 1px solid var(--line); }
-
-  /* Player */
-  dialog { border: 0; padding: 0; background: transparent; width: min(1200px, 100%); max-width: 100%; max-height: 100%; color: #F1F0EC; }
-  dialog::backdrop { background: rgba(8, 8, 10, 0.92); }
-  .pl { position: relative; display: grid; gap: 12px; padding: 56px 12px 16px; }
-  .pl video { width: 100%; max-height: 80vh; margin: 0 auto; border-radius: 12px; background: #000; }
-  .pl.v video { width: auto; height: 80vh; max-width: 100%; }
-  .pl-top { position: absolute; top: 8px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-  .pl-title { font: 600 18px/1.3 var(--font); }
-  .pl-btns { display: flex; gap: 8px; }
-  .pl-btns button { font: 600 14px/1 var(--font); color: #F1F0EC; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 10px; padding: 10px 14px; cursor: pointer; }
-
-  @media (min-width: 960px) {
-    .hero { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; padding-block: 48px 72px; }
-  }
-  @media (max-width: 959px) {
-    .hero .stage { order: -1; }
-    .bar nav a.link { display: none; }
-  }
-  @media (max-width: 700px) {
-    .compare-row, .ai, .offer { grid-template-columns: minmax(0, 1fr); }
-    .offer div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
-    .shorts { grid-template-columns: repeat(3, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
-    .shorts .tile { scroll-snap-align: start; }
-  }
-  /* Icons, hover, mobile nav, hero pause (ui-ux-pro-max audit) */
-  .ico { width: 1em; height: 1em; flex: none; fill: currentColor; }
-  .open-hint { display: inline-flex; align-items: center; gap: 6px; transition: background-color 180ms ease, color 180ms ease; }
-  .tile .frame video { transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1); }
-  .tile .frame:hover video, .tile .frame:focus-visible video { transform: scale(1.035); }
-  .tile .frame:hover .open-hint, .tile .frame:focus-visible .open-hint { background: var(--accent); color: var(--on-accent); }
-  .tile .frame:active video { transform: scale(1.01); }
-  .tile .len { position: absolute; right: 14px; top: 14px; font: 600 12.5px/1 var(--font); color: #fff; background: rgba(0, 0, 0, 0.55); padding: 6px 9px; border-radius: 999px; pointer-events: none; }
-  .pause {
-    position: absolute; left: 16px; bottom: 16px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 999px;
-    color: #fff; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(6px); cursor: pointer; font-size: 18px;
-  }
-  .pl-btns button { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-  .bar .mnav { display: none; }
-  @media (max-width: 959px) {
-    header.bar { flex-wrap: wrap; padding-bottom: 8px; }
-    .bar .mnav { display: flex; flex-basis: 100%; gap: 8px; overflow-x: auto; padding: 2px 0; scrollbar-width: none; }
-    .mnav::-webkit-scrollbar { display: none; }
-    .bar > nav { margin-left: auto; }
-    .mnav a { flex: none; text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); }
-  }
-  html { scroll-padding-top: 120px; }
-  .progress { position: fixed; left: 0; top: 0; height: 2px; width: 100%; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); z-index: 40; pointer-events: none; }
-  .reveal .tile, .reveal .lane-head, .reveal .offer > div, .reveal .stack > div { opacity: 0; transform: translateY(16px); transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1), transform 420ms cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i, 0) * 60ms); }
-  .reveal .in { opacity: 1 !important; transform: none !important; }
-  @media (max-width: 520px) { .name { font-size: 18px; font-stretch: 100%; } .hire { font-size: 14px; padding: 11px 12px; } header.bar { gap: 8px; } }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } .tile .frame:hover video { transform: none; } html { scroll-behavior: auto; } }
-  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="preload" as="image" href="p/reel_ai.jpg" fetchpriority="high">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nico Tan Leonardia","jobTitle":"AI Video Creator","url":"https://nlmino67-wq.github.io/","sameAs":["https://www.upwork.com/freelancers/~01b8600a9862145362"]}</script>
 </head>
 <body>
-<div class="progress" id="progress" aria-hidden="true"></div>
-<div class="wrap">
-  <header class="bar">
-    <a class="name" href="#top">Nico Tan Leonardia</a>
-    <nav aria-label="Sections">
-      <a class="link" href="#ai">AI video</a>
-      <a class="link" href="#tools">How I build it</a>
-      <a class="link" href="#editing">Editing</a>
-      <a class="link" href="#arch">Architecture</a>
-      <a class="link" href="#services">Services</a>
-      <a class="hire" id="hireTop" href="#" target="_blank" rel="noopener" hidden>Hire me on Upwork</a>
-      <span class="pill" id="availTop">Available on Upwork</span>
-    </nav>
-  <nav class="mnav" aria-label="Sections (mobile)">
-      <a href="#ai">AI video</a><a href="#tools">How I build it</a><a href="#editing">Editing</a><a href="#arch">Architecture</a><a href="#services">Services</a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-labelledby="h1">
-      <div style="display:grid;gap:20px">
-        <p class="roles">AI Video Producer · Video Editor · Architectural Visualizer</p>
-        <h1 id="h1">AI video that looks shot, with your product exactly right.</h1>
-        <p class="sub">AI UGC ads, product videos and faceless YouTube series, generated on my own RTX 4090 pipeline with <b>consistent characters and accurate products</b>. I'm also the editor behind <b>George Cordon's ecommerce YouTube channel</b> and two <b>2M+ view</b> shorts for a UK supercar dealer, so every AI piece is cut like a real ad.</p>
-        <div class="actions">
-          <a class="btn solid" href="#ai">See the AI work</a>
-          <a class="btn" href="#editing">See my editing</a>
-        </div>
-      </div>
-      <div class="stage">
-        <video id="reel" src="v/reel_ai.mp4" poster="p/reel_ai.jpg" autoplay muted loop playsinline preload="auto" aria-label="AI video showreel"></video>
-        <button class="sound" type="button" data-open="reel_ai"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg> Watch with sound</button>
-        <button class="pause" type="button" id="reelToggle" aria-label="Pause showreel" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path id="reelIco" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-      </div>
-    </section>
-
-    <section class="lane" id="ai" aria-labelledby="h2a">
-      <div class="lane-head">
-        <h2 id="h2a">AI video generation</h2>
-        <p>Consistent characters across a whole series, products that stay accurate, and finished ad-ready edits rather than loose clips. Generated on my own workstation, then cut by hand.</p>
-      </div>
-      <div class="sub-head first">
-        <h3>Animated ads · Pixar-style 3D, cut to music</h3>
-        <p>A full 60-second story ad: four characters that stay <b>on-model in every shot</b>, a new scene every few seconds, the product as the hero prop and every cut on the beat. Character designs, storyboard, animation, score and edit all made on my own machine.</p>
-      </div>
-      <div class="shorts four" id="animGrid"></div>
-      <div class="sub-head">
-        <h3>Product ads · the viral reel format</h3>
-        <p>15-second 3:4 reels built the way dropshipping pages post them: a meme hook, five locations, one product that stays <b>exactly the same in every shot</b>, and a comment-to-DM call to action. Plus a static set cut from the same shoot.</p>
-      </div>
-      <div class="shorts three-p" id="prodGrid"></div>
-      <div class="statics" id="staticGrid"></div>
-      <div class="sub-head">
-        <h3>AI UGC ads · new creators, fictional brands</h3>
-        <p>Creator, voice, product and B-roll all generated locally, then cut like real UGC: hook first, captions, product cutaways. The serum ad shows <b>three hooks on one body</b>, the way brands test openers.</p>
-      </div>
-      <div class="shorts four" id="ugcGrid"></div>
-      <div class="sub-head">
-        <h3>Faceless YouTube · one AI presenter across a series</h3>
-        <p>Script, voice, 70-80 animated shots per episode and word-highlight captions. The same presenter holds from episode to episode.</p>
-      </div>
-      <div class="ai" id="aiGrid"></div>
-    </section>
-
-    <section class="lane" id="tools" aria-labelledby="h2t">
-      <div class="lane-head">
-        <h2 id="h2t">How I build AI video</h2>
-        <p>Custom ComfyUI pipelines running on my own RTX 4090, wrapped in a studio app I built so anyone on a team can run them.</p>
-      </div>
-      <div class="compare" id="studioRow"></div>
-      <div class="compare-row" id="wfGrid" style="margin-top:22px"></div>
-      <div class="stack" aria-label="Models I use">
-        <div><h3>Video</h3><p>MiniMax H3 · LTX 2.5 · Wan 2.2</p></div>
-        <div><h3>Image</h3><p>Krea 2 with identity LoRA · Qwen-Image-Edit 2509 · Z-Image</p></div>
-        <div><h3>Voice &amp; audio</h3><p>Qwen3-TTS · IndexTTS-2 · Kokoro · ACE-Step music · faster-whisper captions</p></div>
-        <div><h3>Language</h3><p>Gemma 4 on Ollama for scripts and prompt writing, fully local</p></div>
-        <div><h3>Cloud, when needed</h3><p>Kling 3.0 through the Kie API, called from the same studio app</p></div>
-      </div>
-    </section>
-
-    <section class="lane" id="editing" aria-labelledby="h2e">
-      <div class="lane-head">
-        <h2 id="h2e">Raw footage in, finished edit out</h2>
-        <p>Real client footage. The raw camera file on the left, what I delivered on the right.</p>
-        <p><button class="btn" type="button" data-open="reel">Watch the editing showreel</button></p>
-      </div>
-      <div class="compare" id="compare"></div>
-      <div class="shorts" id="shorts"></div>
-      <div class="sub-head">
-        <h3>Baytree Cars · UK supercar dealer</h3>
-        <p>I ran their short-form in 2024. The channel went from flat to <b>4.6 million views and 3,800 new subscribers</b> by year end; these two shorts, at 2.5M and 2.2M views, are still the channel's two most-viewed videos of all time.</p>
-      </div>
-      <div class="shorts two" id="baytree"></div>
-    </section>
-
-    <section class="lane" id="arch" aria-labelledby="h2r">
-      <div class="lane-head">
-        <h2 id="h2r">Architectural visualization</h2>
-        <p>My own architecture projects: drafted in AutoCAD and SketchUp, rendered and animated in Lumion and D5 Render. No AI.</p>
-      </div>
-      <div class="ai" id="archGrid"></div>
-      <div class="sub-head">
-        <h3>Filmed on site · Capita Design &amp; Build</h3>
-        <p>Real footage, not renders: drone and walkthrough videos I shot and edited for a Philippine design-and-build firm's reporting, website and Google Business profile.</p>
-      </div>
-      <div class="ai three" id="capitaGrid"></div>
-    </section>
-
-    <section class="lane" id="services" aria-labelledby="h2s">
-      <div class="lane-head"><h2 id="h2s">What I can do for you</h2></div>
-      <div class="offer">
-        <div><h3>AI video generation</h3><p>Pixar-style animated story ads cut to your music, AI UGC ads with hook variants, product-accurate videos from your photos, faceless YouTube episodes and recurring AI characters. Delivered as finished 9:16, 4:5 and 1:1 edits.</p></div>
-        <div><h3>Short-form editing</h3><p>Reels, Shorts and TikToks from your raw footage: hook-first cuts, word-by-word captions, B-roll and sound design.</p></div>
-        <div><h3>YouTube long-form</h3><p>Picking the best takes from hours of footage, pacing, B-roll, graphics and captions for weekly episodes.</p></div>
-        <div><h3>Architectural visualization</h3><p>Drafting in AutoCAD and SketchUp, photoreal renders and walkthrough videos in Lumion and D5 Render.</p></div>
-      </div>
-    </section>
-
-    <section class="closing" aria-labelledby="h2c">
-      <h2 id="h2c">Send me a product and a brief. I'll send back an ad that looks shot.</h2>
-      <a class="hire" id="hireBottom" href="#" target="_blank" rel="noopener" hidden>Hire me on Upwork</a>
-    </section>
-  </main>
-  <footer>Nico Tan Leonardia · AI video producer, video editor and architectural visualizer. Client work shown with permission. AI pieces are labelled as AI-generated; architecture renders are not AI.</footer>
-</div>
-
-<dialog id="dlg" aria-labelledby="plTitle">
-  <div class="pl" id="pl">
-    <div class="pl-top">
-      <div class="pl-title" id="plTitle"></div>
-      <div class="pl-btns">
-        <button type="button" id="prev" aria-label="Previous video"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg></button>
-        <button type="button" id="next" aria-label="Next video"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 18.6 1.4 1.4 8-8-8-8-1.4 1.4 6.6 6.6z"/></svg></button>
-        <button type="button" id="close">Close</button>
-      </div>
-    </div>
-    <video id="plv" controls playsinline></video>
-    <iframe id="plf" title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen hidden></iframe>
+<div id="top-sentinel" aria-hidden="true"></div>
+<a class="skip btn primary sm" href="#main">Skip to main content</a>
+<header class="bar">
+ <div class="wrap bar-row">
+  <a class="wordmark" href="#top">Nico Tan Leonardia<span class="role">/ AI Video Creator</span></a>
+  <nav class="nav-links" aria-label="Sections"><a href="#ai">AI video</a><a href="#clients">Client work</a><a href="#services">Services</a><a href="#process">Process</a></nav>
+  <a class="btn primary sm" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a>
+ </div>
+ <nav class="wrap navchips" aria-label="Sections"><a class="navchip" href="#ai"><span>AI video</span></a><a class="navchip" href="#clients"><span>Client work</span></a><a class="navchip" href="#services"><span>Services</span></a><a class="navchip" href="#process"><span>Process</span></a></nav>
+</header>
+<main id="main">
+<section id="top" class="hero wrap" aria-labelledby="h1">
+ <div class="grid hero-grid">
+  <div class="hero-copy" style="--lg:5">
+   <p class="eyebrow">Nico Tan Leonardia · Freelance on Upwork</p>
+   <h1 id="h1"><span class="h1-role">AI video creator</span> <span class="h1-niche">for ecommerce ads and YouTube</span></h1>
+   <p class="lead"><a href="#ugc">AI UGC ads</a>, <a href="#product">product ads</a>, <a href="#animated">3D animated ads</a> and <a href="#faceless">faceless YouTube</a>, generated end to end on my own RTX 4090 (characters, products, voices, B-roll) and cut like real ads. I'm also a working editor: every 2026 long-form episode for <a href="#george">George Cordon's ecommerce channel</a>.</p>
+   <div class="hero-actions">
+    <a class="btn primary" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a>
+    <a class="btn ghost" href="#ai">See the AI work <svg class="i i-chevD" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+   </div>
   </div>
+  <div class="hero-media" style="--lg:7">
+   <div class="stage" data-reel="reel_ai" role="group" aria-label="AI showreel, AI-generated">
+    <img class="stage-poster" src="p/reel_ai.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+    <video class="stage-video" muted playsinline preload="none" aria-hidden="true"></video>
+    <a class="stage-sound" href="v/reel_ai.mp4" data-open="reel_ai" aria-haspopup="dialog"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>Watch with sound<span class="vh">: AI showreel, AI-generated, 18 seconds</span></a>
+   </div>
+   <div class="stage-row">
+    <div class="stage-ctl"><button class="stage-pause" type="button" aria-label="Play showreel"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></button><p class="stage-status" aria-hidden="true"><span><span class="st-x">AI showreel · </span>AI-generated<span class="st-x"> · 0:18</span></span></p></div>
+    <div class="seg" role="group" aria-label="Choose showreel">
+     <button type="button" aria-pressed="true" data-reel="reel_ai">AI reel <span class="tc">0:18</span></button><button type="button" aria-pressed="false" data-reel="reel">Editing reel <span class="tc">0:46</span></button>
+    </div>
+   </div>
+   <p class="stage-note">AI showreel · AI-generated</p>
+  </div>
+ </div>
+</section>
+<section id="proof" class="wrap proof-sec" aria-labelledby="proofH">
+ <h2 id="proofH" class="vh">Results at a glance</h2>
+ <div class="proof">
+  <a href="#ugc" data-open="ugc_luma" aria-haspopup="dialog"><span class="v">End to end</span><span class="c">characters, products, voices and edit generated on my own machine, not stitched stock.</span><span class="go">Watch the AI <span class="nw">ads<svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></span><span class="vh"> (AI-generated)</span></span></a>
+  <a href="#baytree" data-open="bay_luxury" aria-haspopup="dialog"><span class="v">2.5M + 2.2M</span><span class="c">views on two Baytree Cars shorts I made. They're still the channel's two most-viewed videos of all time.</span><span class="go">Watch the 2.5M <span class="nw">short<svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></span></span></a>
+  <a href="#baytree"><span class="v">Flat → 4.6M</span><span class="c">views on Baytree Cars' channel in 2024 while I ran their short-form, plus 3,800 new subscribers.</span><span class="go">Read the case <span class="nw">↓</span></span></a>
+  <a href="#george" data-open="cmp_longform" aria-haspopup="dialog"><span class="v">All of 2026</span><span class="c">every long-form episode on George Cordon's ecommerce YouTube channel, plus the Shorts and Reels.</span><span class="go">Watch raw → <span class="nw">final<svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg></span></span></a>
+ </div>
+ <p class="clients-line">Client work for George Cordon · Baytree Cars · Capita Design &amp; Build · Shown with permission</p>
+</section>
+<section id="ai" class="sec" aria-labelledby="h2a"><div class="wrap">
+ <header class="sec-head">
+  <div class="ruler" aria-hidden="true"></div>
+  <p class="eyebrow">01 — AI video</p>
+  <h2 id="h2a">AI video, cut like <em>real</em> ads.</h2>
+  <p>Creators, products, presenters and worlds, generated on my own RTX 4090 and edited by hand. All spec work for fictional brands, and every piece is labelled AI-generated.</p>
+  <nav class="chips-wrap jump" aria-label="AI video formats"><a class="chip" href="#ugc"><span>UGC<span class="hide-sm"> ads</span></span><span class="n hide-sm">3</span></a><a class="chip" href="#product"><span>Product<span class="hide-sm"> ads</span></span><span class="n hide-sm">3 + 4</span></a><a class="chip" href="#animated"><span>Animated<span class="hide-sm"> ad</span></span><span class="n hide-sm">2</span></a><a class="chip" href="#faceless"><span>Faceless<span class="hide-sm"> YouTube</span></span><span class="n hide-sm">3</span></a></nav>
+ </header>
+ <div class="row grid row--flip" id="ugc" data-set="ugc">
+  <div class="info" style="--lg:3">
+   <p class="track">AI UGC ads&nbsp;· <span class="n">3 ads · 1:11</span></p>
+   <h3 class="row-title">Three hooks on one body, ready to test.</h3>
+   <p class="body">New creators and cloned voices for three fictional brands, cut like real UGC: hook first, captions, product cutaways. LUMA runs three openers on the same body, the way brands test ads.<span class="sm-only"> Tap LUMA to hear all three hooks.</span></p>
+  </div>
+  <div class="track-3v" style="--lg:9">
+  <a class="tile" href="v/ugc_luma.mp4" data-id="ugc_luma" data-preview aria-haspopup="dialog"
+   aria-label="Play LUMA serum: 3-hook test. AI-generated, 25 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/ugc_luma.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">3 hooks</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">UGC ad · Fictional brand · 0:25</span></span><span class="t">LUMA serum: 3-hook test</span></span></a>
+  <a class="tile" href="v/ugc_verdant.mp4" data-id="ugc_verdant" data-preview aria-haspopup="dialog"
+   aria-label="Play VERDANT greens. AI-generated, 25 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/ugc_verdant.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:25</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">UGC ad · Fictional brand</span></span><span class="t">VERDANT greens</span></span></a>
+  <a class="tile" href="v/ugc_penni.mp4" data-id="ugc_penni" data-preview aria-haspopup="dialog"
+   aria-label="Play PENNI budgeting app. AI-generated, 22 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/ugc_penni.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:22</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">App UGC ad · Fictional brand</span></span><span class="t">PENNI budgeting app</span></span></a>
+  </div>
+ </div>
+ <div class="row grid" id="product">
+  <div class="info" style="--lg:3">
+   <p class="track">Product ads&nbsp;· <span class="n">3 reels · 0:45 + 4 statics</span></p>
+   <h3 class="row-title">One product, exactly the same in every shot.</h3>
+   <p class="body">15-second reels in the viral format: a meme hook, five locations, a comment-to-DM ending. The hoodie, the cup and the fins stay on-model from the first shot to the last.</p>
+  </div>
+  <div class="track-prod" data-set="product" style="--lg:9">
+  <a class="tile" href="v/prod_cathoodie.mp4" data-id="prod_cathoodie" data-preview aria-haspopup="dialog"
+   aria-label="Play Pet carrying hoodie. AI-generated, 15 seconds, no sound.">
+   <span class="frame" data-ar="3x4"><img src="p/prod_cathoodie.jpg" alt="" width="720" height="960" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:15</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Product reel · No sound</span></span><span class="t">Pet carrying hoodie</span></span></a>
+  <a class="tile" href="v/prod_pawcleaner.mp4" data-id="prod_pawcleaner" data-preview aria-haspopup="dialog"
+   aria-label="Play Dog paw cleaner. AI-generated, 15 seconds, no sound.">
+   <span class="frame" data-ar="3x4"><img src="p/prod_pawcleaner.jpg" alt="" width="720" height="960" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:15</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Product reel · No sound</span></span><span class="t">Dog paw cleaner</span></span></a>
+  <a class="tile" href="v/prod_sharkblanket.mp4" data-id="prod_sharkblanket" data-preview aria-haspopup="dialog"
+   aria-label="Play Wearable shark blanket. AI-generated, 15 seconds, no sound.">
+   <span class="frame" data-ar="3x4"><img src="p/prod_sharkblanket.jpg" alt="" width="720" height="960" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:15</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Product reel · No sound</span></span><span class="t">Wearable shark blanket</span></span></a>
+  <div class="statics" data-set="statics">
+   <p class="statics-label"><span class="tag tag--ai">AI-generated</span><span class="meta">Static ads<span class="hide-sm"> · from the same shoot</span></span></p>
+   <div class="statics-grid">
+  <a class="tile tile--static" href="p/static_1_paw_before_after.jpg" data-id="static_1_paw_before_after" aria-haspopup="dialog"
+   aria-label="View static ad: paw cleaner before and after. AI-generated.">
+   <span class="frame" data-ar="4x5"><img src="p/static_1_paw_before_after.jpg" alt="" width="720" height="900" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg class="i i-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="txt">View</span></span></span></a>
+  <a class="tile tile--static" href="p/static_2_paw_benefits.jpg" data-id="static_2_paw_benefits" aria-haspopup="dialog"
+   aria-label="View static ad: paw cleaner benefits. AI-generated.">
+   <span class="frame" data-ar="4x5"><img src="p/static_2_paw_benefits.jpg" alt="" width="720" height="900" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg class="i i-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="txt">View</span></span></span></a>
+  <a class="tile tile--static" href="p/static_3_hoodie_everywhere.jpg" data-id="static_3_hoodie_everywhere" aria-haspopup="dialog"
+   aria-label="View static ad: pet hoodie lifestyle. AI-generated.">
+   <span class="frame" data-ar="4x5"><img src="p/static_3_hoodie_everywhere.jpg" alt="" width="720" height="900" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg class="i i-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="txt">View</span></span></span></a>
+  <a class="tile tile--static" href="p/static_4_hoodie_problem.jpg" data-id="static_4_hoodie_problem" aria-haspopup="dialog"
+   aria-label="View static ad: pet hoodie problem and solution. AI-generated.">
+   <span class="frame" data-ar="4x5"><img src="p/static_4_hoodie_problem.jpg" alt="" width="720" height="900" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg class="i i-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="txt">View</span></span></span></a>
+   </div>
+  </div>
+  </div>
+ </div>
+ <div class="row grid" id="animated" data-set="animated">
+  <div class="info" style="--md:2;--lg:6">
+   <p class="track">3D animated ad&nbsp;· <span class="n">2 clips · 1:09</span></p>
+   <h3 class="row-title">PAPERWING: a <span class="nw">one-minute</span> 3D story ad.</h3>
+   <p class="body">Four characters that stay on-model in every shot, a new scene every few seconds, the product as the hero prop and every cut on the beat. Character designs, a 17-shot storyboard, animation, score and edit, all made on my own machine.</p>
+  </div>
+  <a class="tile" href="v/anim_paperwing.mp4" data-id="anim_paperwing" data-preview aria-haspopup="dialog" style="--sm:2;--md:2;--lg:3"
+   aria-label="Play PAPERWING: The Scenic Route. AI-generated, 57 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/anim_paperwing.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:57</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">3D story ad · Fictional brand</span></span><span class="t">PAPERWING: The Scenic Route</span></span></a>
+  <a class="tile" href="v/anim_making.mp4" data-id="anim_making" data-preview aria-haspopup="dialog" style="--sm:2;--md:2;--lg:3"
+   aria-label="Play How PAPERWING was made. AI-generated, 12 seconds, no sound.">
+   <span class="frame" data-ar="9x16"><img src="p/anim_making.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:12</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Behind the scenes · No sound</span></span><span class="t">How PAPERWING was made</span></span></a>
+ </div>
+ <div class="row" id="faceless">
+  <div class="info info-split grid">
+   <div style="--lg:6"><p class="track">Faceless YouTube&nbsp;· <span class="n">3 clips · 2:59</span></p><h3 class="row-title">One AI presenter across a whole series.</h3></div>
+   <p class="body" style="--lg:6">Script, AI voice, 70 to 82 animated shots per episode and word-highlight captions. The same presenter holds from episode to episode.</p>
+  </div>
+  <div class="track-face" data-set="faceless">
+  <a class="tile" href="v/faceless.mp4" data-id="faceless" aria-haspopup="dialog"
+   aria-label="Play The Edge of a Black Hole. AI-generated, 59 seconds, with sound.">
+   <span class="frame" data-ar="16x9"><img src="p/faceless.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:59</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Faceless YouTube · Documentary</span></span><span class="t">The Edge of a Black Hole</span><span class="desc">Script, AI voiceover, AI visuals and edit for a documentary-style channel.</span></span></a>
+  <a class="tile" href="v/gf1.mp4" data-id="gf1" aria-haspopup="dialog"
+   aria-label="Play A recurring AI presenter. AI-generated, 1 minute, with sound.">
+   <span class="frame" data-ar="16x9"><img src="p/gf1.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">1:00</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Faceless YouTube · Episode opening</span></span><span class="t">A recurring AI presenter</span><span class="desc">The first minute of an <span class="nw">8-minute</span> episode: the recurring presenter hosts, with 70 animated shots, AI narration, word-highlight captions and music.</span></span></a>
+  <a class="tile" href="v/gf2.mp4" data-id="gf2" aria-haspopup="dialog"
+   aria-label="Play Same presenter, next episode. AI-generated, 1 minute, with sound.">
+   <span class="frame" data-ar="16x9"><img src="p/gf2.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">1:00</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span><span class="meta">Faceless YouTube · Next episode</span></span><span class="t">Same presenter, next episode</span><span class="desc">82 shots matched line by line to the script, so the look and the presenter hold across a series.</span></span></a>
+  </div>
+ </div>
+ <p class="cta-line">Need AI ads for your product? <a class="tlink hire-t" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><strong>Hire me on Upwork</strong><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a></p>
+</div></section>
+<section id="clients" class="sec" aria-labelledby="h2c"><div class="wrap">
+ <header class="sec-head">
+  <div class="ruler" aria-hidden="true"></div>
+  <p class="eyebrow">02 — Client work</p>
+  <h2 id="h2c">Real footage, real <em>clients</em>.</h2>
+  <p>Two channels I edit for, shown with permission. Raw camera files in, finished edits out.</p>
+ </header>
+ <article id="baytree" class="case grid" data-set="baytree">
+  <div class="case-text" style="--lg:6">
+   <p class="idline">Case 01 · Baytree Cars&nbsp;· <span class="nw">UK supercar dealer · 2024</span></p>
+   <h3 class="row-title">From flat to 4.6M views in a year.</h3>
+   <dl class="facts"><div><dt>Role</dt><dd>Ran their short-form in 2024.</dd></div><div><dt>The work</dt><dd>“This or That”, a TikTok game format adapted for a car dealer: two badges, one pick, a reveal every few seconds.</dd></div><div><dt>Result</dt><dd>The channel went from flat to 4.6M views and +3,800 subscribers by year end. These two shorts, at 2.5M and 2.2M views, are still its two most-viewed videos of all time.</dd></div></dl>
+  </div>
+  <a class="tile" href="v/bay_luxury.mp4" data-id="bay_luxury" data-preview aria-haspopup="dialog" style="--sm:2;--md:3;--lg:3"
+   aria-label="Play This or That: luxury car edition. Client work, 59 seconds, with sound. 2.5 million views.">
+   <span class="frame" data-ar="9x16"><img src="p/bay_luxury.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">2.5M views</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">Baytree Cars · Short · 0:59</span></span><span class="t">This or That: luxury car edition</span></span></a>
+  <a class="tile" href="v/bay_ferrari.mp4" data-id="bay_ferrari" data-preview aria-haspopup="dialog" style="--sm:2;--md:3;--lg:3"
+   aria-label="Play This or That: Ferrari edition. Client work, 58 seconds, with sound. 2.2 million views.">
+   <span class="frame" data-ar="9x16"><img src="p/bay_ferrari.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">2.2M views</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">Baytree Cars · Short · 0:58</span></span><span class="t">This or That: Ferrari edition</span></span></a>
+ </article>
+ <article id="george" class="case">
+  <div class="grid case-head">
+   <div class="case-text" style="--lg:6">
+    <p class="idline">Case 02 · George Cordon&nbsp;· <span class="nw">Ecommerce YouTube · 2026</span></p>
+    <h3 class="row-title">Every long-form episode of 2026, plus the Shorts and Reels.</h3>
+   </div>
+   <div class="case-facts" style="--lg:6">
+    <dl class="facts"><div><dt>Role</dt><dd>Editor: long-form episodes, Shorts, Reels and motion graphics.</dd></div><div><dt>The work</dt><dd>Keeper takes picked from hours of footage, then pacing, B-roll, motion graphics and word-by-word captions. In the comparisons, raw is on the left and what I delivered is on the right.</dd></div><div><dt>Delivered</dt><dd>Every long-form episode of 2026, plus the channel's Shorts and Reels.</dd></div></dl>
+    <a class="btn ghost sm" href="v/reel.mp4" data-open="reel" aria-haspopup="dialog"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>Watch the editing showreel · 0:46</a>
+   </div>
+  </div>
+  <div class="george-media" data-set="george">
+   <div class="track-a">
+  <a class="tile tile--cmp" href="v/cmp_longform.mp4" data-id="cmp_longform" data-preview aria-haspopup="dialog"
+   aria-label="Play 26 minutes of takes to an 8-minute episode. Client work, 19 seconds, with sound.">
+   <span class="frame" data-ar="16x9"><img src="p/cmp_longform.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:19</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">Raw → final · Long-form</span></span><span class="desc">Picked the keeper take from 26 minutes of recordings, cut the false starts, then added B-roll, captions and music. Raw on the left, the delivered episode on the right.</span></span></a>
+  <a class="tile" href="v/short_8.mp4" data-id="short_8" data-preview aria-haspopup="dialog"
+   aria-label="Play Most jobs stop paying. Client work, 33 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/short_8.jpg" alt="" width="540" height="960" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:33</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">George Cordon · Short</span></span><span class="t">Most jobs stop paying</span></span></a>
+  <a class="tile" href="v/short_om3.mp4" data-id="short_om3" data-preview aria-haspopup="dialog"
+   aria-label="Play Global e-commerce in 2026. Client work, 38 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/short_om3.jpg" alt="" width="540" height="960" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:38</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">George Cordon · Reel</span></span><span class="t">Global e-commerce in 2026</span></span></a>
+  <a class="tile" href="v/short_organic.mp4" data-id="short_organic" data-preview aria-haspopup="dialog"
+   aria-label="Play Organic content isn't enough. Client work, 30 seconds, with sound.">
+   <span class="frame" data-ar="9x16"><img src="p/short_organic.jpg" alt="" width="540" height="960" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:30</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">George Cordon · Short</span></span><span class="t">Organic content isn't enough</span></span></a>
+   </div>
+   <div class="track-b">
+  <a class="tile tile--cmp" href="v/cmp_short.mp4" data-id="cmp_short" data-preview aria-haspopup="dialog"
+   aria-label="Play One desk take to a captioned vertical short. Client work, 30 seconds, with sound.">
+   <span class="frame" data-ar="16x9"><img src="p/cmp_short.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:30</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">Raw → final · Short</span></span><span class="desc">Reframed 16:9 to 9:16, tightened the pauses, added word-by-word captions and sound design.</span></span></a>
+  <a class="tile tile--cmp" href="v/cmp_reel.mp4" data-id="cmp_reel" data-preview aria-haspopup="dialog"
+   aria-label="Play Two camera angles to an Instagram reel. Client work, 30 seconds, with sound.">
+   <span class="frame" data-ar="16x9"><img src="p/cmp_reel.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">0:30</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg><span class="txt">Play with sound</span></span></span>
+   <span class="cap"><span class="cap-top"><span class="tag tag--real">Client work</span><span class="meta">Raw → final · Instagram reel</span></span><span class="desc">Multicam cut from two angles, jump cuts on the beat, animated stats and captions.</span></span></a>
+   </div>
+  </div>
+ </article>
+ <div class="cta-band grid">
+  <p class="cta-t" style="--lg:8">Need an editor for your channel?</p>
+  <div class="cta-act" style="--lg:4"><a class="btn primary" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a><a class="tlink" href="#ai">Or see the AI ads ↑</a></div>
+ </div>
+</div></section>
+<section id="services" class="sec" aria-labelledby="h2s"><div class="wrap">
+ <header class="sec-head">
+  <div class="ruler" aria-hidden="true"></div>
+  <p class="eyebrow">03 — Services</p>
+  <h2 id="h2s">What you can hire me for</h2>
+  <p>Every job runs through Upwork: contracts, files and payment.</p>
+ </header>
+ <ul class="svc grid">
+  <li style="--md:3;--lg:3"><span class="num">01</span><h3>AI UGC and product ads</h3><p>Creator, voice, product and B-roll generated from your product photos, cut hook-first with captions, with hook variants for testing. Delivered in 9:16, 4:5 and 1:1.</p><p class="see">See it: <a class="tlink" href="#ugc">UGC ads →</a> · <a class="tlink" href="#product">Product ads →</a></p></li>
+  <li style="--md:3;--lg:3"><span class="num">02</span><h3>Short-form editing</h3><p>Reels, Shorts and TikToks from your raw footage: hook-first cuts, word-by-word captions, B-roll and sound design.</p><p class="see">See it: <a class="tlink" href="#baytree">Baytree Cars →</a></p></li>
+  <li style="--md:3;--lg:3"><span class="num">03</span><h3>YouTube long-form editing</h3><p>Picking the best takes from hours of footage, then pacing, B-roll, motion graphics and captions for your episodes.</p><p class="see">See it: <a class="tlink" href="#george">George Cordon →</a></p></li>
+  <li style="--md:3;--lg:3"><span class="num">04</span><h3>Faceless YouTube and 3D animated ads</h3><p>Scripted episodes with a recurring AI presenter, AI narration and word-highlight captions; 3D story ads cut to music.</p><p class="see">See it: <a class="tlink" href="#faceless">Faceless →</a> · <a class="tlink" href="#animated">Animated →</a></p></li>
+ </ul>
+ <p class="also">Also: architectural visualization in AutoCAD, SketchUp, Lumion and D5 Render. <a class="tlink" href="#more"><strong>See other work ↓</strong></a></p>
+ <h3 class="sub-h">How a job runs</h3>
+ <ol class="steps">
+  <li><span class="n" aria-hidden="true">1</span>Send your product, brief or raw footage on Upwork.</li>
+  <li><span class="n" aria-hidden="true">2</span>I script, generate and edit.</li>
+  <li><span class="n" aria-hidden="true">3</span>You get finished files in 9:16, 4:5 and 1:1, ready to post.</li>
+ </ol>
+ <div class="act"><a class="btn primary" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a><p class="micro">Contracts and payments go through Upwork.</p></div>
+</div></section>
+<section id="process" class="sec" aria-labelledby="h2p"><div class="wrap">
+ <header class="sec-head">
+  <div class="ruler" aria-hidden="true"></div>
+  <p class="eyebrow">04 — Process</p>
+  <h2 id="h2p">How I build AI video</h2>
+  <p>Custom ComfyUI pipelines on my own RTX 4090, run from a studio app I built so a team can use them. Local by default; Kling 3.0 through the Kie API when a shot needs it.</p>
+ </header>
+ <div class="grid proc">
+  <figure class="shot" style="--lg:7">
+   <img src="p/studio.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Screenshot of a studio app I built: a six-scene storyboard, a scene list and a render pipeline.">
+   <figcaption><span class="tag tag--real">Screenshot</span> <strong>A studio app I built.</strong> Every ComfyUI workflow becomes a one-click recipe: pick a character, a product and a scene, queue it, and every clip is checked for face and logo accuracy.</figcaption>
+  </figure>
+  <div class="stack-col" style="--lg:5">
+   <h3 class="sub-h">The stack</h3>
+   <dl class="stack"><div><dt>Video</dt><dd>MiniMax H3 · LTX 2.5 · Wan 2.2</dd></div><div><dt>Image</dt><dd>Krea 2 · Qwen-Image-Edit · Z-Image</dd></div><div><dt>Voice &amp; audio</dt><dd>Qwen3-TTS · IndexTTS-2 · Kokoro · ACE-Step · faster-whisper</dd></div><div><dt>Language</dt><dd>Gemma on Ollama</dd></div><div><dt>Cloud, when needed</dt><dd>Kling 3.0 via the Kie API</dd></div><div><dt>Hardware</dt><dd>My own RTX 4090</dd></div></dl>
+  </div>
+ </div>
+ <h3 class="sub-h caps-h">What that gets you</h3>
+ <ul class="caps grid"><li style="--md:3;--lg:3"><strong>The same face in every shot.</strong> One photo becomes a four-view character sheet.</li><li style="--md:3;--lg:3"><strong>Your real logo, exact.</strong> The brand mark is put back onto generated products.</li><li style="--md:3;--lg:3"><strong>Talking heads past a minute.</strong> Segments chained with no visible seam.</li><li style="--md:3;--lg:3"><strong>Checked before the edit.</strong> Every clip is checked for face and logo accuracy.</li></ul>
+ <p class="cta-line">Want AI video made this way? <a class="tlink hire-t" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><strong>Hire me on Upwork</strong><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a></p>
+</div></section>
+<section id="more" class="sec" aria-labelledby="h2m"><div class="wrap">
+ <header class="sec-head">
+  <div class="ruler" aria-hidden="true"></div>
+  <p class="eyebrow">Also — Other work</p>
+  <h2 id="h2m">Other work</h2>
+  <p>My own architecture projects, drafted in AutoCAD and SketchUp and rendered in Lumion and D5 Render (no AI), films I shot and edited on site, and an AI property reel.</p>
+ </header>
+ <div class="index-cols">
+  <div>
+   <div class="ix-group">
+    <h3 class="ix-h" id="architecture">Architecture · rendered, no AI <span aria-hidden="true">5</span><span class="vh">, 5 pieces</span></h3>
+    <ul class="index" data-set="renders">
+    <li><a class="entry" href="https://www.youtube.com/watch?v=85W51X9GyTw" data-id="arch_tropics" aria-haspopup="dialog" aria-label="Play Reimagined Tropics: brutalist tropical house. No AI, rendered. Opens a YouTube player.">
+   <span class="thumb" data-ar="16x9"><img src="p/arch_tropics.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Reimagined Tropics: brutalist tropical house</span><span class="e-meta">Lumion walkthrough</span><span class="e-line">Concrete, timber brise-soleil and courtyards.</span></span>
+   <span class="e-side"><span class="tag tag--real">No AI · render</span><span class="meta">YouTube</span></span></a></li>
+    <li><a class="entry" href="https://www.youtube.com/watch?v=XED3y7ck-6g" data-id="arch_school" aria-haspopup="dialog" aria-label="Play Visionary Learning: a sustainable school. No AI, rendered. Opens a YouTube player.">
+   <span class="thumb" data-ar="16x9"><img src="p/arch_school.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Visionary Learning: a sustainable school</span><span class="e-meta">Lumion walkthrough</span><span class="e-line">A circular, biophilic campus concept for New Clark City.</span></span>
+   <span class="e-side"><span class="tag tag--real">No AI · render</span><span class="meta">YouTube</span></span></a></li>
+    <li><a class="entry" href="https://www.youtube.com/watch?v=1lpKjEbCi3s" data-id="arch_midrise" aria-haspopup="dialog" aria-label="Play Enlace: mid-rise residential. No AI, rendered. Opens a YouTube player.">
+   <span class="thumb" data-ar="16x9"><img src="p/arch_midrise.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Enlace: mid-rise residential</span><span class="e-meta">Aerial walkthrough</span><span class="e-line">A 33,000 sqm wellness-focused apartment community, from masterplan to aerial walkthrough.</span></span>
+   <span class="e-side"><span class="tag tag--real">No AI · render</span><span class="meta">YouTube</span></span></a></li>
+    <li><a class="entry" href="https://www.youtube.com/watch?v=u6o-bm-gQ1o" data-id="arch_elsitio" aria-haspopup="dialog" aria-label="Play El Sitio: adaptive reuse in Intramuros. No AI, rendered. Opens a YouTube player.">
+   <span class="thumb" data-ar="16x9"><img src="p/arch_elsitio.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">El Sitio: adaptive reuse in Intramuros</span><span class="e-meta">Adaptive reuse</span><span class="e-line">Reusing the stone walls and arches of the Cuartel de Sta. Lucia.</span></span>
+   <span class="e-side"><span class="tag tag--real">No AI · render</span><span class="meta">YouTube</span></span></a></li>
+    <li><a class="entry" href="https://www.youtube.com/watch?v=XIpvPSIs8PA" data-id="arch_resto" aria-haspopup="dialog" aria-label="Play Restaurant 101: fine-dining interior. No AI, rendered. Opens a YouTube player.">
+   <span class="thumb" data-ar="16x9"><img src="p/arch_resto.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Restaurant 101: fine-dining interior</span><span class="e-meta">Interior</span><span class="e-line">Acoustics and lighting redesign, rendered interior walkthrough.</span></span>
+   <span class="e-side"><span class="tag tag--real">No AI · render</span><span class="meta">YouTube</span></span></a></li>
+    </ul>
+   </div>
+  </div>
+  <div>
+   <div class="ix-group">
+    <h3 class="ix-h" id="capita">Filmed and edited on site <span aria-hidden="true">4</span><span class="vh">, 4 pieces</span></h3>
+    <ul class="index" data-set="onsite">
+    <li><a class="entry" href="v/cap_drone.mp4" data-id="cap_drone" aria-haspopup="dialog" aria-label="Play Concrete pour on a residential build. Real footage, 1 minute 7 seconds, with sound.">
+   <span class="thumb" data-ar="16x9"><img src="p/cap_drone.jpg" alt="" width="1134" height="638" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Concrete pour on a residential build</span><span class="e-meta">Capita Design &amp; Build · Drone</span><span class="e-line">Aerial coverage of an active site for progress reporting and marketing, with labelled steps.</span></span>
+   <span class="e-side"><span class="tag tag--real">Real footage</span><span class="meta">1:07</span></span></a></li>
+    <li><a class="entry" href="v/cap_plant.mp4" data-id="cap_plant" aria-haspopup="dialog" aria-label="Play Aerospace plant and head office. Real footage, 30 seconds, with sound.">
+   <span class="thumb" data-ar="16x9"><img src="p/cap_plant.jpg" alt="" width="1134" height="638" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Aerospace plant and head office</span><span class="e-meta">Capita Design &amp; Build · Walkthrough</span><span class="e-line">Handover walkthrough used on the company's website and Google Business profile.</span></span>
+   <span class="e-side"><span class="tag tag--real">Real footage</span><span class="meta">0:30</span></span></a></li>
+    <li><a class="entry" href="v/cap_residence.mp4" data-id="cap_residence" aria-haspopup="dialog" aria-label="Play Three-storey premium residence. Real footage, 3 minutes 24 seconds, with sound.">
+   <span class="thumb" data-ar="16x9"><img src="p/cap_residence.jpg" alt="" width="1134" height="638" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Three-storey premium residence</span><span class="e-meta">Capita Design &amp; Build · Walkthrough</span><span class="e-line">Full walkthrough shot before handover, from the dusk exterior to every room.</span></span>
+   <span class="e-side"><span class="tag tag--real">Real footage</span><span class="meta">3:24</span></span></a></li>
+    <li><a class="entry" href="https://www.youtube.com/watch?v=OKVGQMjwzGY" data-id="arch_palafox" aria-haspopup="dialog" aria-label="Play Internship at Palafox Associates. Real footage. Opens a YouTube player.">
+   <span class="thumb" data-ar="16x9"><img src="p/arch_palafox.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">Internship at Palafox Associates</span><span class="e-meta">Palafox Associates · Internship</span><span class="e-line">My architecture internship, shot and edited by me.</span></span>
+   <span class="e-side"><span class="tag tag--real">Real footage</span><span class="meta">YouTube</span></span></a></li>
+    </ul>
+   </div>
+   <div class="ix-group">
+    <h3 class="ix-h" id="property">AI property reel <span aria-hidden="true">1</span><span class="vh">, 1 piece</span></h3>
+    <ul class="index" data-set="property">
+    <li><a class="entry" href="v/realestate_v.mp4" data-id="realestate_v" aria-haspopup="dialog" aria-label="Play A home that isn't built yet. AI-generated, 27 seconds, with sound.">
+   <span class="thumb" data-ar="9x16"><img src="p/realestate_v.jpg" alt="" width="720" height="1280" loading="lazy" decoding="async"></span>
+   <span class="e-text"><span class="e-title">A home that isn't built yet</span><span class="e-meta">Property reel · 9:16</span><span class="e-line">Photoreal walkthrough shots cut as a vertical listing reel for pre-construction marketing.</span></span>
+   <span class="e-side"><span class="tag tag--ai">AI-generated</span><span class="meta">0:27</span></span></a></li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</div></section>
+<section id="hire" class="sec closing" aria-labelledby="h2h"><div class="wrap">
+ <div class="ruler" aria-hidden="true"></div>
+ <div class="grid closing-grid">
+  <div style="--lg:8">
+   <p class="eyebrow">Hire</p>
+   <h2 id="h2h">Send me a product photo and a brief. I'll send back an ad that looks <em>shot</em>.</h2>
+   <p class="closing-line">Or send raw footage and get back an edit that's ready to post. Invite me to your job or message me on Upwork.</p>
+  </div>
+  <div class="closing-act" style="--lg:4"><a class="btn primary lg" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a><p class="micro">Opens my Upwork profile in a new tab. Contracts and payments go through Upwork.</p></div>
+ </div>
+</div></section>
+</main>
+<footer class="foot"><div class="wrap">
+ <div class="foot-row">
+  <p><span class="wm">Nico Tan Leonardia</span> · AI Video Creator</p>
+  <p class="foot-links"><a class="tlink hire-t" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener">Hire me on Upwork<svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a><a class="tlink" href="#more">Other work</a><a class="tlink" href="#top">Back to top ↑</a></p>
+ </div>
+ <div class="foot-row">
+  <p>Client work shown with permission. AI pieces are labelled AI-generated; architecture renders are not AI.</p>
+  <p>© 2026 Nico Tan Leonardia</p>
+ </div>
+</div></footer>
+<dialog id="player" aria-labelledby="plTitle" aria-describedby="plTag plMeta plDesc">
+ <div class="pl">
+  <div class="pl-top"><p class="pl-count" id="plCount"></p>
+   <button class="ctl" id="plClose" type="button" aria-label="Close player" autofocus><svg class="i i-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="pl-stage">
+   <button class="ctl pl-nav" id="plPrev" type="button" aria-label="Previous"><svg class="i i-chevL" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+   <div class="pl-media" id="plMedia">
+    <video id="plv" controls playsinline preload="none" hidden></video>
+    <iframe id="plf" hidden allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube player"></iframe>
+    <img id="pli" hidden alt="">
+    <div class="pl-end" id="plEnd" hidden></div>
+    <div class="pl-err" id="plErr" hidden><p>This video didn't load.</p><button class="btn ghost sm" type="button" id="plRetry">Retry</button></div>
+   </div>
+   <button class="ctl pl-nav" id="plNext" type="button" aria-label="Next"><svg class="i i-chevR" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+  <div class="pl-info">
+   <span class="tag" id="plTag"></span>
+   <h2 class="pl-title" id="plTitle"></h2>
+   <p class="meta" id="plMeta"></p>
+   <p class="pl-desc" id="plDesc"></p>
+   <hr>
+   <a class="btn primary" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a>
+   <p class="pl-micro">Opens Upwork in a new tab.</p>
+   <button class="btn ghost sm" id="plCopy" type="button"><svg class="i i-link" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span class="copy-l">Copy link to this piece</span></button>
+  </div>
+  <div class="pl-bar"><button class="ctl" data-step="-1" type="button" aria-label="Previous"><svg class="i i-chevL" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><a class="btn primary" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a><button class="ctl" data-step="1" type="button" aria-label="Next"><svg class="i i-chevR" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button></div>
+  <p class="vh" id="plLive" aria-live="polite"></p>
+ </div>
 </dialog>
-
-<script>
-  const UPWORK_URL = "https://www.upwork.com/freelancers/~01b8600a9862145362";
-
-  const ITEMS = [
-    { id: "reel_ai", group: "hero", title: "AI video showreel", desc: "AI presenter series, AI UGC ads, product cutaways and property shots, all generated locally.", v: false },
-    { id: "reel", group: "hero", title: "Editing showreel", desc: "Shorts, long-form and motion graphics for George Cordon's channel.", v: false },
-    { id: "cmp_longform", group: "compare", wide: true, title: "26 minutes of takes → an 8-minute YouTube episode", desc: "Found the keeper take, cut the false starts, added B-roll, captions and music." },
-    { id: "cmp_short", group: "compare", title: "One desk take → a captioned vertical short", desc: "Reframed to 9:16, tightened pauses, word-by-word captions and sound design." },
-    { id: "cmp_reel", group: "compare", title: "Two camera angles → an Instagram reel", desc: "Multicam cut, jump cuts on the beat, animated stats and captions." },
-    { id: "short_8", group: "shorts", v: true, title: "Short: most jobs stop paying", desc: "Hook in the first second, captions and B-roll." },
-    { id: "short_om3", group: "shorts", v: true, title: "Reel: global e-commerce in 2026", desc: "Animated stats and multicam." },
-    { id: "short_organic", group: "shorts", v: true, title: "Short: organic content isn't enough", desc: "Punch-ins, captions and sound design." },
-    { id: "bay_luxury", group: "baytree", v: true, len: "2.5M views", title: "This or That: luxury car edition", desc: "A TikTok game format adapted for a car dealer: two badges, one pick, a reveal every few seconds." },
-    { id: "bay_ferrari", group: "baytree", v: true, len: "2.2M views", title: "This or That: Ferrari edition", desc: "The follow-up: the same game with an all-Ferrari lineup." },
-    { id: "arch_school", group: "arch", yt: "XED3y7ck-6g", title: "Visionary Learning: a sustainable school", desc: "A circular, biophilic campus concept for New Clark City. Lumion walkthrough, 2026." },
-    { id: "arch_tropics", group: "arch", yt: "85W51X9GyTw", title: "Reimagined Tropics: brutalist tropical house", desc: "Concrete, timber brise-soleil and courtyards. My most-watched walkthrough, 23K views." },
-    { id: "arch_elsitio", group: "arch", yt: "u6o-bm-gQ1o", title: "El Sitio: adaptive reuse in Intramuros", desc: "Bringing youth back to Intramuros by reusing the stone walls and arches of the Cuartel de Sta. Lucia." },
-    { id: "arch_resto", group: "arch", yt: "XIpvPSIs8PA", title: "Restaurant 101: fine dining interior", desc: "Acoustics and lighting redesign of a fine-dining restaurant, rendered interior walkthrough." },
-    { id: "arch_midrise", group: "arch", yt: "1lpKjEbCi3s", title: "Enlace: mid-rise residential complex", desc: "A 33,000 sqm wellness-focused apartment community, from masterplan to aerial walkthrough." },
-    { id: "arch_palafox", group: "arch", yt: "OKVGQMjwzGY", title: "Internship at Palafox Associates", desc: "My architecture internship at Palafox Associates, shot and edited by me." },
-    { id: "cap_drone", group: "capita", title: "Drone: concrete pour on a residential build", desc: "Aerial coverage of an active site for progress reporting and marketing, with labelled steps." },
-    { id: "cap_plant", group: "capita", title: "Aerospace manufacturing plant and head office", desc: "Handover walkthrough used on the company's website and Google Business profile." },
-    { id: "cap_residence", group: "capita", title: "Three-storey premium residence", desc: "Full walkthrough shot before handover to the client, dusk exterior to every room." },
-    { id: "studio", group: "studio", title: "My own AI video studio", desc: "Every ComfyUI workflow becomes a one-click recipe: pick a character, a product and a scene, queue it, and every clip is checked automatically for face and logo accuracy. Batches run overnight; Kling 3.0 is one click away through the Kie API." },
-    { id: "wf_h3", group: "wf", silent: true, title: "MiniMax H3 talking-head pipeline", desc: "An 87-node graph: reference images and voice in, a 15-second lip-synced talking head out, with dual sampling for realism." },
-    { id: "wf_krea", group: "wf", silent: true, title: "Krea 2 character sheet", desc: "One photo in, a four-view character sheet out, so the same face holds across every shot." },
-    { id: "wf_ltx", group: "wf", silent: true, title: "LTX 2.5 long-clip chaining", desc: "Segments chained with a guide frame so a talking head runs past a minute without a visible seam." },
-    { id: "wf_logo", group: "wf", silent: true, title: "Product logo fix", desc: "Qwen-Image-Edit composites the real logo back onto a generated garment so the brand mark stays exact." },
-    { id: "gf1", group: "ai", len: "1:00 of 8:11", title: "Faceless YouTube: a channelled Full Moon message", desc: "First minute of a full episode. A recurring AI presenter hosts; 70 animated cosmic B-roll shots, AI narration, word-highlight captions and music, all generated and cut on my own machine. AI-generated." },
-    { id: "gf2", group: "ai", len: "1:00 of 10:05", title: "Faceless YouTube: signs you're a starseed", desc: "Same presenter, new episode: 82 shots matched line-by-line to the script, from bedroom scenes to star cities, so the look stays consistent across a series. AI-generated." },
-    { id: "faceless", group: "ai", title: "Faceless YouTube: The Edge of a Black Hole", desc: "Script, AI voiceover, AI visuals and edit for a documentary-style channel. AI-generated." },
-    { id: "anim_paperwing", group: "anim", v: true, len: "0:57", title: "PAPERWING: The Scenic Route", desc: "A paper-plane birthday card crosses the city: pigeon, corgi, bus, rain, and a grandpa who finds it. Pixar-style 3D, music only, product on screen from the first shot to the end card. AI-generated, fictional brand." },
-    { id: "anim_making", group: "anim", v: true, silent: true, title: "How it was made", desc: "Character designs locked first, a 17-shot storyboard with four takes per shot, then each picked still animated and checked frame by frame." },
-    { id: "prod_cathoodie", group: "prod", v: true, p: true, silent: true, title: "Pet carrying hoodie", desc: "Airport, café, park, mirror: the hoodie and the cat hold in every shot. Hook caption, comment-to-DM ending. AI-generated." },
-    { id: "prod_pawcleaner", group: "prod", v: true, p: true, silent: true, title: "Dog paw cleaner", desc: "Muddy prints to clean paws. The cup keeps its exact shape through the dip, twist and rinse. AI-generated." },
-    { id: "prod_sharkblanket", group: "prod", v: true, p: true, silent: true, title: "Wearable shark blanket", desc: "Couch, kitchen, doorstep, bed: a plush product with teeth and fins that stays on-model across five scenes. AI-generated." },
-    { id: "ugc_luma", group: "ugc", v: true, len: "3 hooks", title: "LUMA serum: hook test", desc: "Three openers, one body. Same creator and cloned voice in every take. AI-generated." },
-    { id: "ugc_verdant", group: "ugc", v: true, title: "VERDANT greens", desc: "Morning-routine testimonial with pour and pack-shot cutaways. AI-generated." },
-    { id: "ugc_penni", group: "ugc", v: true, title: "PENNI budgeting app", desc: "App UGC: confession hook, screen cutaways, clear call to action. AI-generated." },
-    { id: "realestate_v", group: "ugc", v: true, title: "Property reel: a home that isn't built yet", desc: "Photoreal walkthrough shots cut as a vertical listing reel for pre-construction marketing. AI-generated." },
-  ];
-
-  const tile = (it) => `
-    <article class="tile">
-      <button class="frame ${it.p ? "p" : it.v ? "v" : "w"}" type="button" data-open="${it.id}" aria-label="Play ${it.title}">
-        <video data-preview src="v/${it.id}.mp4" poster="p/${it.id}.jpg" muted loop playsinline preload="none"></video>
-        <span class="open-hint"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>${it.silent ? "Play" : "Play with sound"}</span>${it.len ? `<span class="len">${it.len}</span>` : ""}
-      </button>
-      <h3>${it.title}</h3><p>${it.desc}</p>
-    </article>`;
-  const cmp = ITEMS.filter((i) => i.group === "compare");
-  document.getElementById("compare").innerHTML = tile(cmp[0]) + `<div class="compare-row">${tile(cmp[1])}${tile(cmp[2])}</div>`;
-  document.getElementById("shorts").innerHTML = ITEMS.filter((i) => i.group === "shorts").map(tile).join("");
-  document.getElementById("aiGrid").innerHTML = ITEMS.filter((i) => i.group === "ai").map(tile).join("");
-  document.getElementById("baytree").innerHTML = ITEMS.filter((i) => i.group === "baytree").map(tile).join("");
-  document.getElementById("capitaGrid").innerHTML = ITEMS.filter((i) => i.group === "capita").map(tile).join("");
-  document.getElementById("animGrid").innerHTML = ITEMS.filter((i) => i.group === "anim").map(tile).join("");
-  document.getElementById("ugcGrid").innerHTML = ITEMS.filter((i) => i.group === "ugc").map(tile).join("");
-  document.getElementById("prodGrid").innerHTML = ITEMS.filter((i) => i.group === "prod").map(tile).join("");
-  const STATICS = [
-    ["static_1_paw_before_after", "Static ad: paw cleaner before and after"],
-    ["static_2_paw_benefits", "Static ad: paw cleaner benefits"],
-    ["static_3_hoodie_everywhere", "Static ad: pet hoodie lifestyle"],
-    ["static_4_hoodie_problem", "Static ad: pet hoodie problem and solution"],
-  ];
-  document.getElementById("staticGrid").innerHTML = STATICS.map(([f, alt]) =>
-    `<a href="p/${f}.jpg" target="_blank" rel="noopener"><img src="p/${f}.jpg" alt="${alt}" loading="lazy" width="720" height="900"></a>`).join("");
-  document.getElementById("archGrid").innerHTML = ITEMS.filter((i) => i.group === "arch").map(tile).join("");
-  document.getElementById("studioRow").innerHTML = ITEMS.filter((i) => i.group === "studio").map(tile).join("");
-  document.getElementById("wfGrid").innerHTML = ITEMS.filter((i) => i.group === "wf").map(tile).join("");
-
-  // Muted previews play while on screen (and on hover); they pause when scrolled away.
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const io = new IntersectionObserver((es) => es.forEach((e) => {
-    const v = e.target;
-    if (e.isIntersecting && !reduce) { v.preload = "auto"; v.play().catch(() => {}); } else { v.pause(); }
-  }), { threshold: 0.6 });
-  document.querySelectorAll("video[data-preview]").forEach((v) => io.observe(v));
-
-  // Full player with sound, previous/next, Esc and top-right close.
-  const order = ITEMS.map((i) => i.id);
-  const byId = Object.fromEntries(ITEMS.map((i) => [i.id, i]));
-  const dlg = document.getElementById("dlg"), pl = document.getElementById("pl"), plv = document.getElementById("plv");
-  const reel = document.getElementById("reel");
-  let current = null, userPaused = false;
-  function show(id) {
-    const it = byId[id]; if (!it) return;
-    current = id;
-    pl.classList.toggle("v", Boolean(it.v));
-    const plf = document.getElementById("plf");
-    if (it.yt) {
-      plv.pause(); plv.removeAttribute("src"); plv.hidden = true; plf.hidden = false;
-      plf.src = `https://www.youtube-nocookie.com/embed/${it.yt}?autoplay=1&rel=0&modestbranding=1`;
-    } else {
-      plf.src = "about:blank"; plf.hidden = true; plv.hidden = false;
-      plv.src = `v/${id}.mp4`; plv.poster = `p/${id}.jpg`;
-    }
-    document.getElementById("plTitle").textContent = it.title;
-    document.querySelectorAll("video[data-preview]").forEach((v) => v.pause());
-    reel.pause();
-    if (!dlg.open) dlg.showModal();
-    if (!it.yt) plv.play().catch(() => {});
-  }
-  function step(d) { const i = order.indexOf(current); show(order[(i + d + order.length) % order.length]); }
-  function close() { plv.pause(); plv.removeAttribute("src"); plv.load(); document.getElementById("plf").src = "about:blank"; dlg.close(); if (!reduce && !userPaused) reel.play().catch(() => {}); }
-  document.addEventListener("click", (e) => { const t = e.target.closest("[data-open]"); if (t) show(t.dataset.open); });
-  document.getElementById("prev").onclick = () => step(-1);
-  document.getElementById("next").onclick = () => step(1);
-  document.getElementById("close").onclick = close;
-  dlg.addEventListener("cancel", (e) => { e.preventDefault(); close(); });
-  dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
-  document.addEventListener("keydown", (e) => { if (!dlg.open) return; if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
-  let x0 = null;
-  plv.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
-  plv.addEventListener("touchend", (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1); x0 = null; });
-
-  if (UPWORK_URL) {
-    ["hireTop", "hireBottom"].forEach((id) => { const a = document.getElementById(id); a.href = UPWORK_URL; a.hidden = false; });
-    document.getElementById("availTop").hidden = true;
-  }
-  const rt = document.getElementById("reelToggle"), ri = document.getElementById("reelIco");
-  const setRt = (paused) => { rt.setAttribute("aria-pressed", String(paused)); rt.setAttribute("aria-label", paused ? "Play showreel" : "Pause showreel"); ri.setAttribute("d", paused ? "M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z" : "M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"); };
-  rt.onclick = () => { userPaused = !reel.paused; if (userPaused) reel.pause(); else reel.play().catch(() => {}); };
-  reel.addEventListener("play", () => setRt(false)); reel.addEventListener("pause", () => setRt(true));
-  if (reduce) reel.pause();
-
-  // Staggered reveal as each chapter scrolls in, plus a reading-progress line (ui-ux-pro-max motion + pattern).
-  if (!reduce && "IntersectionObserver" in window) {
-    document.documentElement.classList.add("reveal");
-    const groups = document.querySelectorAll(".lane-head, .compare, .compare-row, .shorts, .ai, .offer, .stack");
-    groups.forEach((g) => [...g.children].forEach((c, i) => c.style.setProperty("--i", i)));
-    const ro = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); ro.unobserve(e.target); } }), { threshold: 0.15 });
-    const items = document.querySelectorAll(".tile, .lane-head, .offer > div, .stack > div");
-    items.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in"); else ro.observe(el); });
-    // Safety net: never leave work hidden if the observer is throttled (background tab, odd embed).
-    addEventListener("scroll", () => setTimeout(() => items.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add("in"); }), 700), { passive: true });
-    const bar = document.getElementById("progress");
-    const onScroll = () => { const h = document.documentElement; bar.style.transform = `scaleX(${scrollY / Math.max(1, h.scrollHeight - innerHeight)})`; };
-    addEventListener("scroll", onScroll, { passive: true }); onScroll();
-  }
+<script type="application/json" id="items">
+[
+{"id":"reel_ai","kind":"video","ar":"16x9","tag":"ai","tagText":"AI-generated","chip":"0:18","meta":"AI showreel · Ads and property","title":"AI showreel","desc":"UGC ads with hook variants, product cutaways and photoreal property shots. Generated on my own RTX 4090 and edited by hand.","dur":"0:18","silent":false,"preview":false,"segments":[[4,8],[11.5,18.5],[22,29]]},
+{"id":"reel","kind":"video","ar":"16x9","tag":"real","tagText":"Client work","chip":"0:46","meta":"George Cordon · showreel","title":"Editing showreel","desc":"Shorts, long-form and motion graphics for George Cordon's ecommerce YouTube channel.","dur":"0:46","silent":false,"preview":false},
+{"id":"ugc_luma","kind":"video","ar":"9x16","tag":"ai","tagText":"AI-generated","chip":"3 hooks","meta":"UGC ad · Fictional brand · 0:25","title":"LUMA serum: 3-hook test","desc":"Three openers, one body. The same AI creator and cloned voice in every take, the way brands test hooks.","dur":"0:25","silent":false,"preview":true},
+{"id":"ugc_verdant","kind":"video","ar":"9x16","tag":"ai","tagText":"AI-generated","chip":"0:25","meta":"UGC ad · Fictional brand","title":"VERDANT greens","desc":"Morning-routine testimonial with pour and pack-shot cutaways.","dur":"0:25","silent":false,"preview":true},
+{"id":"ugc_penni","kind":"video","ar":"9x16","tag":"ai","tagText":"AI-generated","chip":"0:22","meta":"App UGC ad · Fictional brand","title":"PENNI budgeting app","desc":"Confession hook, screen cutaways and a clear call to action.","dur":"0:22","silent":false,"preview":true},
+{"id":"prod_cathoodie","kind":"video","ar":"3x4","tag":"ai","tagText":"AI-generated","chip":"0:15","meta":"Product reel · No sound","title":"Pet carrying hoodie","desc":"Airport, café, park, mirror: the hoodie and the cat hold in every shot. Hook caption, comment-to-DM ending.","dur":"0:15","silent":true,"preview":true},
+{"id":"prod_pawcleaner","kind":"video","ar":"3x4","tag":"ai","tagText":"AI-generated","chip":"0:15","meta":"Product reel · No sound","title":"Dog paw cleaner","desc":"Muddy prints to clean paws. The cup keeps its exact shape through the dip, twist and rinse.","dur":"0:15","silent":true,"preview":true},
+{"id":"prod_sharkblanket","kind":"video","ar":"3x4","tag":"ai","tagText":"AI-generated","chip":"0:15","meta":"Product reel · No sound","title":"Wearable shark blanket","desc":"Couch, kitchen, doorstep, bed: teeth and fins stay on-model across five scenes.","dur":"0:15","silent":true,"preview":true},
+{"id":"static_1_paw_before_after","kind":"img","ar":"4x5","tag":"ai","tagText":"AI-generated","chip":null,"meta":"Static ad · 4:5","title":"Static ad: paw cleaner before and after","desc":"Static ad from the same AI shoot as the product reels.","silent":true,"preview":false},
+{"id":"static_2_paw_benefits","kind":"img","ar":"4x5","tag":"ai","tagText":"AI-generated","chip":null,"meta":"Static ad · 4:5","title":"Static ad: paw cleaner benefits","desc":"Static ad from the same AI shoot as the product reels.","silent":true,"preview":false},
+{"id":"static_3_hoodie_everywhere","kind":"img","ar":"4x5","tag":"ai","tagText":"AI-generated","chip":null,"meta":"Static ad · 4:5","title":"Static ad: pet hoodie lifestyle","desc":"Static ad from the same AI shoot as the product reels.","silent":true,"preview":false},
+{"id":"static_4_hoodie_problem","kind":"img","ar":"4x5","tag":"ai","tagText":"AI-generated","chip":null,"meta":"Static ad · 4:5","title":"Static ad: pet hoodie problem and solution","desc":"Static ad from the same AI shoot as the product reels.","silent":true,"preview":false},
+{"id":"anim_paperwing","kind":"video","ar":"9x16","tag":"ai","tagText":"AI-generated","chip":"0:57","meta":"3D story ad · Fictional brand","title":"PAPERWING: The Scenic Route","desc":"A paper-plane birthday card crosses the city: pigeon, corgi, bus, rain, and a grandpa who finds it. 3D-animated, music only, the product on screen from the first shot to the end card.","dur":"0:57","silent":false,"preview":true},
+{"id":"anim_making","kind":"video","ar":"9x16","tag":"ai","tagText":"AI-generated","chip":"0:12","meta":"Behind the scenes · No sound","title":"How PAPERWING was made","desc":"Character designs locked first, a 17-shot storyboard with four takes per shot, then each chosen still animated and checked frame by frame.","dur":"0:12","silent":true,"preview":true},
+{"id":"faceless","kind":"video","ar":"16x9","tag":"ai","tagText":"AI-generated","chip":"0:59","meta":"Faceless YouTube · Documentary","title":"The Edge of a Black Hole","desc":"Script, AI voiceover, AI visuals and edit for a documentary-style channel.","dur":"0:59","silent":false,"preview":false},
+{"id":"gf1","kind":"video","ar":"16x9","tag":"ai","tagText":"AI-generated","chip":"1:00","ep":"8:11","meta":"Faceless YouTube · Episode opening","title":"A recurring AI presenter","desc":"The first minute of an 8-minute episode: the recurring presenter hosts, with 70 animated shots, AI narration, word-highlight captions and music.","dur":"1:00","silent":false,"preview":false},
+{"id":"gf2","kind":"video","ar":"16x9","tag":"ai","tagText":"AI-generated","chip":"1:00","ep":"10:05","meta":"Faceless YouTube · Next episode","title":"Same presenter, next episode","desc":"82 shots matched line by line to the script, so the look and the presenter hold across a series.","dur":"1:00","silent":false,"preview":false},
+{"id":"bay_luxury","kind":"video","ar":"9x16","tag":"real","tagText":"Client work","chip":"2.5M views","meta":"Baytree Cars · Short · 0:59","title":"This or That: luxury car edition","desc":"A TikTok game format adapted for a car dealer: two badges, one pick, a reveal every few seconds. Baytree Cars' most-viewed video of all time.","dur":"0:59","silent":false,"preview":true},
+{"id":"bay_ferrari","kind":"video","ar":"9x16","tag":"real","tagText":"Client work","chip":"2.2M views","meta":"Baytree Cars · Short · 0:58","title":"This or That: Ferrari edition","desc":"The follow-up: the same game with an all-Ferrari lineup. The channel's second most-viewed video.","dur":"0:58","silent":false,"preview":true},
+{"id":"cmp_longform","kind":"video","ar":"16x9","tag":"real","tagText":"Client work","chip":"0:19","meta":"Raw → final · Long-form","title":"26 minutes of takes → an 8-minute episode","desc":"Picked the keeper take from 26 minutes of recordings, cut the false starts, then added B-roll, captions and music. Raw on the left, the delivered episode on the right.","dur":"0:19","silent":false,"preview":true},
+{"id":"short_8","kind":"video","ar":"9x16","tag":"real","tagText":"Client work","chip":"0:33","meta":"George Cordon · Short","title":"Most jobs stop paying","desc":"Hook in the first second, captions and B-roll.","dur":"0:33","silent":false,"preview":true},
+{"id":"short_om3","kind":"video","ar":"9x16","tag":"real","tagText":"Client work","chip":"0:38","meta":"George Cordon · Reel","title":"Global e-commerce in 2026","desc":"Animated stats and a multicam cut.","dur":"0:38","silent":false,"preview":true},
+{"id":"short_organic","kind":"video","ar":"9x16","tag":"real","tagText":"Client work","chip":"0:30","meta":"George Cordon · Short","title":"Organic content isn't enough","desc":"Punch-ins, captions and sound design.","dur":"0:30","silent":false,"preview":true},
+{"id":"cmp_short","kind":"video","ar":"16x9","tag":"real","tagText":"Client work","chip":"0:30","meta":"Raw → final · Short","title":"One desk take → a captioned vertical short","desc":"Reframed 16:9 to 9:16, tightened the pauses, added word-by-word captions and sound design.","dur":"0:30","silent":false,"preview":true},
+{"id":"cmp_reel","kind":"video","ar":"16x9","tag":"real","tagText":"Client work","chip":"0:30","meta":"Raw → final · Instagram reel","title":"Two camera angles → an Instagram reel","desc":"Multicam cut from two angles, jump cuts on the beat, animated stats and captions.","dur":"0:30","silent":false,"preview":true},
+{"id":"arch_tropics","kind":"yt","ar":"16x9","tag":"real","tagText":"No AI · render","chip":"YouTube","meta":"Lumion walkthrough","title":"Reimagined Tropics: brutalist tropical house","desc":"Concrete, timber brise-soleil and courtyards.","preview":false,"yt":"85W51X9GyTw"},
+{"id":"arch_school","kind":"yt","ar":"16x9","tag":"real","tagText":"No AI · render","chip":"YouTube","meta":"Lumion walkthrough","title":"Visionary Learning: a sustainable school","desc":"A circular, biophilic campus concept for New Clark City.","preview":false,"yt":"XED3y7ck-6g"},
+{"id":"arch_midrise","kind":"yt","ar":"16x9","tag":"real","tagText":"No AI · render","chip":"YouTube","meta":"Aerial walkthrough","title":"Enlace: mid-rise residential","desc":"A 33,000 sqm wellness-focused apartment community, from masterplan to aerial walkthrough.","preview":false,"yt":"1lpKjEbCi3s"},
+{"id":"arch_elsitio","kind":"yt","ar":"16x9","tag":"real","tagText":"No AI · render","chip":"YouTube","meta":"Adaptive reuse","title":"El Sitio: adaptive reuse in Intramuros","desc":"Reusing the stone walls and arches of the Cuartel de Sta. Lucia.","preview":false,"yt":"u6o-bm-gQ1o"},
+{"id":"arch_resto","kind":"yt","ar":"16x9","tag":"real","tagText":"No AI · render","chip":"YouTube","meta":"Interior","title":"Restaurant 101: fine-dining interior","desc":"Acoustics and lighting redesign, rendered interior walkthrough.","preview":false,"yt":"XIpvPSIs8PA"},
+{"id":"cap_drone","kind":"video","ar":"16x9","tag":"real","tagText":"Real footage","chip":"1:07","meta":"Capita Design & Build · Drone","title":"Concrete pour on a residential build","desc":"Aerial coverage of an active site for progress reporting and marketing, with labelled steps.","dur":"1:07","silent":false,"preview":false},
+{"id":"cap_plant","kind":"video","ar":"16x9","tag":"real","tagText":"Real footage","chip":"0:30","meta":"Capita Design & Build · Walkthrough","title":"Aerospace plant and head office","desc":"Handover walkthrough used on the company's website and Google Business profile.","dur":"0:30","silent":false,"preview":false},
+{"id":"cap_residence","kind":"video","ar":"16x9","tag":"real","tagText":"Real footage","chip":"3:24","meta":"Capita Design & Build · Walkthrough","title":"Three-storey premium residence","desc":"Full walkthrough shot before handover, from the dusk exterior to every room.","dur":"3:24","silent":false,"preview":false},
+{"id":"arch_palafox","kind":"yt","ar":"16x9","tag":"real","tagText":"Real footage","chip":"YouTube","meta":"Palafox Associates · Internship","title":"Internship at Palafox Associates","desc":"My architecture internship, shot and edited by me.","preview":false,"yt":"OKVGQMjwzGY"},
+{"id":"realestate_v","kind":"video","ar":"9x16","tag":"ai","tagText":"AI-generated","chip":"0:27","meta":"Property reel · 9:16","title":"A home that isn't built yet","desc":"Photoreal walkthrough shots cut as a vertical listing reel for pre-construction marketing.","dur":"0:27","silent":false,"preview":false}
+]
 </script>
 </body>
 </html>
