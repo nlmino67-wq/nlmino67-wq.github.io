@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nico Tan Leonardia</title>
+<meta name="description" content="Nico Tan Leonardia: AI video producer and video editor. AI UGC ads, product-accurate AI video, faceless YouTube series and consistent AI characters, generated on my own RTX 4090 pipeline and cut like real ads.">
+<meta property="og:title" content="Nico Tan Leonardia · AI Video Producer &amp; Editor">
+<meta property="og:description" content="AI video that looks shot, with your product exactly right.">
+<meta property="og:image" content="https://nlmino67-wq.github.io/p/reel_ai.jpg">
+<meta property="og:url" content="https://nlmino67-wq.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,600;62..125,800&family=Space+Grotesk:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#000000">
+<style>
+  /* Design system: ui-ux-pro-max "Minimalism & Swiss Style" (query: film video production studio cinematic dark).
+     Monochrome on black so the footage supplies all the colour. */
+  :root {
+    --ground: #000000;
+    --panel: #0B0B0C;
+    --ink: #FAFAFA;
+    --soft: #94A3B8;
+    --line: #1C1C1F;
+    --accent: #F8FAFC;
+    --on-accent: #0F172A;
+    --stage: #050506;
+    --font: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink); font: 400 17px/1.55 var(--font);
+    padding-inline: 16px; -webkit-font-smoothing: antialiased;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+
+  header.bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; display: flex; align-items: center;
+    justify-content: space-between; gap: 12px; padding-block: 12px;
+    background: color-mix(in srgb, var(--ground) 90%, transparent); backdrop-filter: blur(12px);
+  }
+  .name { font: 800 22px/1 var(--display); font-stretch: 112%; letter-spacing: -0.02em; text-decoration: none; }
+  .bar nav { display: flex; align-items: center; gap: 4px; }
+  .bar nav a.link { text-decoration: none; color: var(--soft); font-weight: 500; font-size: 15px; padding: 8px 12px; border-radius: 8px; }
+  .bar nav a.link:hover { color: var(--ink); }
+  .hire {
+    display: inline-flex; transition: opacity 160ms ease; align-items: center; gap: 8px; text-decoration: none; font: 600 15px/1 var(--font);
+    background: var(--accent); color: var(--on-accent); padding: 12px 16px; border-radius: 10px;
+  }
+  .hire[hidden] { display: none !important; }
+  .pill { font-weight: 600; font-size: 14px; color: var(--soft); padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; }
+
+  /* Hero */
+  .hero { padding-block: 28px 56px; display: grid; gap: 28px; }
+  .hero h1 {
+    margin: 0; font: 800 clamp(38px, 6vw, 72px)/1.0 var(--display); font-stretch: 108%; letter-spacing: -0.03em;
+    max-width: 16ch; text-wrap: balance;
+  }
+  .hero .sub { margin: 0; font-size: clamp(17px, 1.7vw, 20px); color: var(--soft); max-width: 58ch; }
+  .hero .sub b { color: var(--ink); font-weight: 600; }
+  .stage { position: relative; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); overflow: hidden; background: var(--stage); aspect-ratio: 16 / 9; }
+  .stage video { width: 100%; height: 100%; object-fit: cover; }
+  .sound {
+    position: absolute; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px;
+    font: 600 15px/1 var(--font); color: #111; background: #fff; border: 0; border-radius: 999px; padding: 12px 16px; cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: 600 16px/1 var(--font); padding: 14px 18px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+  .btn.solid { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .btn { transition: border-color 160ms ease, background-color 160ms ease; }
+  .btn:hover { border-color: var(--soft); }
+  .hire:hover { opacity: 0.88; }
+
+  /* Sections */
+  section.lane { padding-block: 88px; border-top: 1px solid var(--line); }
+  .lane-head { display: grid; gap: 8px; margin-bottom: 28px; max-width: 62ch; }
+  .lane-head h2 { margin: 0; font: 800 clamp(34px, 4.6vw, 60px)/1.0 var(--display); font-stretch: 104%; letter-spacing: -0.025em; text-wrap: balance; }
+  .lane-head p { margin: 0; color: var(--soft); }
+
+  .compare { display: grid; gap: 22px; }
+  .tile { display: grid; gap: 12px; }
+  .tile .frame { position: relative; border-radius: 4px; box-shadow: 0 0 0 1px var(--line); overflow: hidden; background: var(--stage); cursor: pointer; border: 0; padding: 0; width: 100%; }
+  .tile .frame video { width: 100%; height: 100%; object-fit: cover; }
+  .tile .frame.w { aspect-ratio: 16 / 9; }
+  .tile .frame.v { aspect-ratio: 9 / 16; }
+  .tile h3 { margin: 0; font: 600 20px/1.25 var(--font); letter-spacing: -0.01em; }
+  .tile p { margin: 0; color: var(--soft); font-size: 15.5px; }
+  .open-hint {
+    position: absolute; left: 14px; bottom: 14px; font: 600 13.5px/1 var(--font); color: #fff; background: rgba(0, 0, 0, 0.55);
+    padding: 8px 12px; border-radius: 999px; backdrop-filter: blur(6px); pointer-events: none;
+  }
+  .compare-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+
+  .shorts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 40px; }
+  .shorts .tile .frame { max-width: 100%; }
+
+  .sub-head { display: grid; gap: 6px; margin: 64px 0 24px; max-width: 64ch; padding-top: 28px; border-top: 1px solid var(--line); }
+  .sub-head.first { margin-top: 8px; border-top: 0; padding-top: 0; }
+  .sub-head h3 { margin: 0; font: 600 13px/1.2 var(--font); letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+  .sub-head p { margin: 0; font-size: 18px; }
+  .sub-head p b { font-weight: 600; }
+  .shorts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: calc((100% - 44px) * 2 / 3 + 22px); margin-top: 0; }
+  @media (max-width: 700px) { .shorts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; overflow: visible; } }
+  .shorts.four { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
+  .shorts.three-p { margin-top: 0; }
+  .tile .frame.p { aspect-ratio: 3 / 4; }
+  .statics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: 28px; }
+  .statics a { display: block; border-radius: 4px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+  .statics img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+  @media (max-width: 900px) { .statics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { .shorts.four { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; } }
+  .ai.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 900px) { .ai.three { grid-template-columns: minmax(0, 1fr); } }
+  .ai { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+
+  .offer { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+  .stack { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; margin-top: 34px; border-top: 1px solid var(--line); }
+  .stack div { padding: 18px 18px 0 0; }
+  .stack h3 { margin: 0 0 6px; font: 600 16px/1.2 var(--font); }
+  .stack p { margin: 0; color: var(--soft); font-size: 14.5px; }
+  @media (max-width: 900px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .roles { margin: 0; font-weight: 500; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+  .pl iframe { width: 100%; aspect-ratio: 16 / 9; max-height: 80vh; border: 0; border-radius: 12px; background: #000; }
+  .pl iframe[hidden], .pl video[hidden] { display: none; }
+  .offer div { padding: 22px 22px 22px 0; }
+  .offer div + div { padding-left: 22px; border-left: 1px solid var(--line); }
+  .offer h3 { margin: 0 0 8px; font: 600 20px/1.2 var(--font); }
+  .offer p { margin: 0; color: var(--soft); font-size: 15.5px; }
+
+  .closing { padding-block: 64px 48px; border-top: 1px solid var(--line); display: grid; gap: 18px; justify-items: start; }
+  .closing h2 { margin: 0; font: 800 clamp(30px, 4.4vw, 54px)/1.02 var(--display); font-stretch: 108%; letter-spacing: -0.03em; max-width: 18ch; text-wrap: balance; }
+  footer { padding-block: 20px 40px; color: var(--soft); font-size: 14px; border-top: 1px solid var(--line); }
+
+  /* Player */
+  dialog { border: 0; padding: 0; background: transparent; width: min(1200px, 100%); max-width: 100%; max-height: 100%; color: #F1F0EC; }
+  dialog::backdrop { background: rgba(8, 8, 10, 0.92); }
+  .pl { position: relative; display: grid; gap: 12px; padding: 56px 12px 16px; }
+  .pl video { width: 100%; max-height: 80vh; margin: 0 auto; border-radius: 12px; background: #000; }
+  .pl.v video { width: auto; height: 80vh; max-width: 100%; }
+  .pl-top { position: absolute; top: 8px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .pl-title { font: 600 18px/1.3 var(--font); }
+  .pl-btns { display: flex; gap: 8px; }
+  .pl-btns button { font: 600 14px/1 var(--font); color: #F1F0EC; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 10px; padding: 10px 14px; cursor: pointer; }
+
+  @media (min-width: 960px) {
+    .hero { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; padding-block: 48px 72px; }
+  }
+  @media (max-width: 959px) {
+    .hero .stage { order: -1; }
+    .bar nav a.link { display: none; }
+  }
+  @media (max-width: 700px) {
+    .compare-row, .ai, .offer { grid-template-columns: minmax(0, 1fr); }
+    .offer div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+    .shorts { grid-template-columns: repeat(3, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+    .shorts .tile { scroll-snap-align: start; }
+  }
+  /* Icons, hover, mobile nav, hero pause (ui-ux-pro-max audit) */
+  .ico { width: 1em; height: 1em; flex: none; fill: currentColor; }
+  .open-hint { display: inline-flex; align-items: center; gap: 6px; transition: background-color 180ms ease, color 180ms ease; }
+  .tile .frame video { transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .tile .frame:hover video, .tile .frame:focus-visible video { transform: scale(1.035); }
+  .tile .frame:hover .open-hint, .tile .frame:focus-visible .open-hint { background: var(--accent); color: var(--on-accent); }
+  .tile .frame:active video { transform: scale(1.01); }
+  .tile .len { position: absolute; right: 14px; top: 14px; font: 600 12.5px/1 var(--font); color: #fff; background: rgba(0, 0, 0, 0.55); padding: 6px 9px; border-radius: 999px; pointer-events: none; }
+  .pause {
+    position: absolute; left: 16px; bottom: 16px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 999px;
+    color: #fff; background: rgba(0, 0, 0, 0.55); backdrop-filter: blur(6px); cursor: pointer; font-size: 18px;
+  }
+  .pl-btns button { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+  .bar .mnav { display: none; }
+  @media (max-width: 959px) {
+    header.bar { flex-wrap: wrap; padding-bottom: 8px; }
+    .bar .mnav { display: flex; flex-basis: 100%; gap: 8px; overflow-x: auto; padding: 2px 0; scrollbar-width: none; }
+    .mnav::-webkit-scrollbar { display: none; }
+    .bar > nav { margin-left: auto; }
+    .mnav a { flex: none; text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 11px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); }
+  }
+  html { scroll-padding-top: 120px; }
+  .progress { position: fixed; left: 0; top: 0; height: 2px; width: 100%; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); z-index: 40; pointer-events: none; }
+  .reveal .tile, .reveal .lane-head, .reveal .offer > div, .reveal .stack > div { opacity: 0; transform: translateY(16px); transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1), transform 420ms cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i, 0) * 60ms); }
+  .reveal .in { opacity: 1 !important; transform: none !important; }
+  @media (max-width: 520px) { .name { font-size: 18px; font-stretch: 100%; } .hire { font-size: 14px; padding: 11px 12px; } header.bar { gap: 8px; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } .tile .frame:hover video { transform: none; } html { scroll-behavior: auto; } }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <header class="bar">
+    <a class="name" href="#top">Nico Tan Leonardia</a>
+    <nav aria-label="Sections">
+      <a class="link" href="#ai">AI video</a>
+      <a class="link" href="#tools">How I build it</a>
+      <a class="link" href="#editing">Editing</a>
+      <a class="link" href="#arch">Architecture</a>
+      <a class="link" href="#services">Services</a>
+      <a class="hire" id="hireTop" href="#" target="_blank" rel="noopener" hidden>Hire me on Upwork</a>
+      <span class="pill" id="availTop">Available on Upwork</span>
+    </nav>
+  <nav class="mnav" aria-label="Sections (mobile)">
+      <a href="#ai">AI video</a><a href="#tools">How I build it</a><a href="#editing">Editing</a><a href="#arch">Architecture</a><a href="#services">Services</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="h1">
+      <div style="display:grid;gap:20px">
+        <p class="roles">AI Video Producer · Video Editor · Architectural Visualizer</p>
+        <h1 id="h1">AI video that looks shot, with your product exactly right.</h1>
+        <p class="sub">AI UGC ads, product videos and faceless YouTube series, generated on my own RTX 4090 pipeline with <b>consistent characters and accurate products</b>. I'm also the editor behind <b>George Cordon's ecommerce YouTube channel</b> and two <b>2M+ view</b> shorts for a UK supercar dealer, so every AI piece is cut like a real ad.</p>
+        <div class="actions">
+          <a class="btn solid" href="#ai">See the AI work</a>
+          <a class="btn" href="#editing">See my editing</a>
+        </div>
+      </div>
+      <div class="stage">
+        <video id="reel" src="v/reel_ai.mp4" poster="p/reel_ai.jpg" autoplay muted loop playsinline preload="auto" aria-label="AI video showreel"></video>
+        <button class="sound" type="button" data-open="reel_ai"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg> Watch with sound</button>
+        <button class="pause" type="button" id="reelToggle" aria-label="Pause showreel" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path id="reelIco" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+      </div>
+    </section>
+
+    <section class="lane" id="ai" aria-labelledby="h2a">
+      <div class="lane-head">
+        <h2 id="h2a">AI video generation</h2>
+        <p>Consistent characters across a whole series, products that stay accurate, and finished ad-ready edits rather than loose clips. Generated on my own workstation, then cut by hand.</p>
+      </div>
+      <div class="sub-head first">
+        <h3>Animated ads · Pixar-style 3D, cut to music</h3>
+        <p>A full 60-second story ad: four characters that stay <b>on-model in every shot</b>, a new scene every few seconds, the product as the hero prop and every cut on the beat. Character designs, storyboard, animation, score and edit all made on my own machine.</p>
+      </div>
+      <div class="shorts four" id="animGrid"></div>
+      <div class="sub-head">
+        <h3>Product ads · the viral reel format</h3>
+        <p>15-second 3:4 reels built the way dropshipping pages post them: a meme hook, five locations, one product that stays <b>exactly the same in every shot</b>, and a comment-to-DM call to action. Plus a static set cut from the same shoot.</p>
+      </div>
+      <div class="shorts three-p" id="prodGrid"></div>
+      <div class="statics" id="staticGrid"></div>
+      <div class="sub-head">
+        <h3>AI UGC ads · new creators, fictional brands</h3>
+        <p>Creator, voice, product and B-roll all generated locally, then cut like real UGC: hook first, captions, product cutaways. The serum ad shows <b>three hooks on one body</b>, the way brands test openers.</p>
+      </div>
+      <div class="shorts four" id="ugcGrid"></div>
+      <div class="sub-head">
+        <h3>Faceless YouTube · one AI presenter across a series</h3>
+        <p>Script, voice, 70-80 animated shots per episode and word-highlight captions. The same presenter holds from episode to episode.</p>
+      </div>
+      <div class="ai" id="aiGrid"></div>
+    </section>
+
+    <section class="lane" id="tools" aria-labelledby="h2t">
+      <div class="lane-head">
+        <h2 id="h2t">How I build AI video</h2>
+        <p>Custom ComfyUI pipelines running on my own RTX 4090, wrapped in a studio app I built so anyone on a team can run them.</p>
+      </div>
+      <div class="compare" id="studioRow"></div>
+      <div class="compare-row" id="wfGrid" style="margin-top:22px"></div>
+      <div class="stack" aria-label="Models I use">
+        <div><h3>Video</h3><p>MiniMax H3 · LTX 2.5 · Wan 2.2</p></div>
+        <div><h3>Image</h3><p>Krea 2 with identity LoRA · Qwen-Image-Edit 2509 · Z-Image</p></div>
+        <div><h3>Voice &amp; audio</h3><p>Qwen3-TTS · IndexTTS-2 · Kokoro · ACE-Step music · faster-whisper captions</p></div>
+        <div><h3>Language</h3><p>Gemma 4 on Ollama for scripts and prompt writing, fully local</p></div>
+        <div><h3>Cloud, when needed</h3><p>Kling 3.0 through the Kie API, called from the same studio app</p></div>
+      </div>
+    </section>
+
+    <section class="lane" id="editing" aria-labelledby="h2e">
+      <div class="lane-head">
+        <h2 id="h2e">Raw footage in, finished edit out</h2>
+        <p>Real client footage. The raw camera file on the left, what I delivered on the right.</p>
+        <p><button class="btn" type="button" data-open="reel">Watch the editing showreel</button></p>
+      </div>
+      <div class="compare" id="compare"></div>
+      <div class="shorts" id="shorts"></div>
+      <div class="sub-head">
+        <h3>Baytree Cars · UK supercar dealer</h3>
+        <p>I ran their short-form in 2024. The channel went from flat to <b>4.6 million views and 3,800 new subscribers</b> by year end; these two shorts, at 2.5M and 2.2M views, are still the channel's two most-viewed videos of all time.</p>
+      </div>
+      <div class="shorts two" id="baytree"></div>
+    </section>
+
+    <section class="lane" id="arch" aria-labelledby="h2r">
+      <div class="lane-head">
+        <h2 id="h2r">Architectural visualization</h2>
+        <p>My own architecture projects: drafted in AutoCAD and SketchUp, rendered and animated in Lumion and D5 Render. No AI.</p>
+      </div>
+      <div class="ai" id="archGrid"></div>
+      <div class="sub-head">
+        <h3>Filmed on site · Capita Design &amp; Build</h3>
+        <p>Real footage, not renders: drone and walkthrough videos I shot and edited for a Philippine design-and-build firm's reporting, website and Google Business profile.</p>
+      </div>
+      <div class="ai three" id="capitaGrid"></div>
+    </section>
+
+    <section class="lane" id="services" aria-labelledby="h2s">
+      <div class="lane-head"><h2 id="h2s">What I can do for you</h2></div>
+      <div class="offer">
+        <div><h3>AI video generation</h3><p>Pixar-style animated story ads cut to your music, AI UGC ads with hook variants, product-accurate videos from your photos, faceless YouTube episodes and recurring AI characters. Delivered as finished 9:16, 4:5 and 1:1 edits.</p></div>
+        <div><h3>Short-form editing</h3><p>Reels, Shorts and TikToks from your raw footage: hook-first cuts, word-by-word captions, B-roll and sound design.</p></div>
+        <div><h3>YouTube long-form</h3><p>Picking the best takes from hours of footage, pacing, B-roll, graphics and captions for weekly episodes.</p></div>
+        <div><h3>Architectural visualization</h3><p>Drafting in AutoCAD and SketchUp, photoreal renders and walkthrough videos in Lumion and D5 Render.</p></div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="h2c">
+      <h2 id="h2c">Send me a product and a brief. I'll send back an ad that looks shot.</h2>
+      <a class="hire" id="hireBottom" href="#" target="_blank" rel="noopener" hidden>Hire me on Upwork</a>
+    </section>
+  </main>
+  <footer>Nico Tan Leonardia · AI video producer, video editor and architectural visualizer. Client work shown with permission. AI pieces are labelled as AI-generated; architecture renders are not AI.</footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="plTitle">
+  <div class="pl" id="pl">
+    <div class="pl-top">
+      <div class="pl-title" id="plTitle"></div>
+      <div class="pl-btns">
+        <button type="button" id="prev" aria-label="Previous video"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg></button>
+        <button type="button" id="next" aria-label="Next video"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 18.6 1.4 1.4 8-8-8-8-1.4 1.4 6.6 6.6z"/></svg></button>
+        <button type="button" id="close">Close</button>
+      </div>
+    </div>
+    <video id="plv" controls playsinline></video>
+    <iframe id="plf" title="Video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen hidden></iframe>
+  </div>
+</dialog>
+
+<script>
+  const UPWORK_URL = "https://www.upwork.com/freelancers/~01b8600a9862145362";
+
+  const ITEMS = [
+    { id: "reel_ai", group: "hero", title: "AI video showreel", desc: "AI presenter series, AI UGC ads, product cutaways and property shots, all generated locally.", v: false },
+    { id: "reel", group: "hero", title: "Editing showreel", desc: "Shorts, long-form and motion graphics for George Cordon's channel.", v: false },
+    { id: "cmp_longform", group: "compare", wide: true, title: "26 minutes of takes → an 8-minute YouTube episode", desc: "Found the keeper take, cut the false starts, added B-roll, captions and music." },
+    { id: "cmp_short", group: "compare", title: "One desk take → a captioned vertical short", desc: "Reframed to 9:16, tightened pauses, word-by-word captions and sound design." },
+    { id: "cmp_reel", group: "compare", title: "Two camera angles → an Instagram reel", desc: "Multicam cut, jump cuts on the beat, animated stats and captions." },
+    { id: "short_8", group: "shorts", v: true, title: "Short: most jobs stop paying", desc: "Hook in the first second, captions and B-roll." },
+    { id: "short_om3", group: "shorts", v: true, title: "Reel: global e-commerce in 2026", desc: "Animated stats and multicam." },
+    { id: "short_organic", group: "shorts", v: true, title: "Short: organic content isn't enough", desc: "Punch-ins, captions and sound design." },
+    { id: "bay_luxury", group: "baytree", v: true, len: "2.5M views", title: "This or That: luxury car edition", desc: "A TikTok game format adapted for a car dealer: two badges, one pick, a reveal every few seconds." },
+    { id: "bay_ferrari", group: "baytree", v: true, len: "2.2M views", title: "This or That: Ferrari edition", desc: "The follow-up: the same game with an all-Ferrari lineup." },
+    { id: "arch_school", group: "arch", yt: "XED3y7ck-6g", title: "Visionary Learning: a sustainable school", desc: "A circular, biophilic campus concept for New Clark City. Lumion walkthrough, 2026." },
+    { id: "arch_tropics", group: "arch", yt: "85W51X9GyTw", title: "Reimagined Tropics: brutalist tropical house", desc: "Concrete, timber brise-soleil and courtyards. My most-watched walkthrough, 23K views." },
+    { id: "arch_elsitio", group: "arch", yt: "u6o-bm-gQ1o", title: "El Sitio: adaptive reuse in Intramuros", desc: "Bringing youth back to Intramuros by reusing the stone walls and arches of the Cuartel de Sta. Lucia." },
+    { id: "arch_resto", group: "arch", yt: "XIpvPSIs8PA", title: "Restaurant 101: fine dining interior", desc: "Acoustics and lighting redesign of a fine-dining restaurant, rendered interior walkthrough." },
+    { id: "arch_midrise", group: "arch", yt: "1lpKjEbCi3s", title: "Enlace: mid-rise residential complex", desc: "A 33,000 sqm wellness-focused apartment community, from masterplan to aerial walkthrough." },
+    { id: "arch_palafox", group: "arch", yt: "OKVGQMjwzGY", title: "Internship at Palafox Associates", desc: "My architecture internship at Palafox Associates, shot and edited by me." },
+    { id: "cap_drone", group: "capita", title: "Drone: concrete pour on a residential build", desc: "Aerial coverage of an active site for progress reporting and marketing, with labelled steps." },
+    { id: "cap_plant", group: "capita", title: "Aerospace manufacturing plant and head office", desc: "Handover walkthrough used on the company's website and Google Business profile." },
+    { id: "cap_residence", group: "capita", title: "Three-storey premium residence", desc: "Full walkthrough shot before handover to the client, dusk exterior to every room." },
+    { id: "studio", group: "studio", title: "My own AI video studio", desc: "Every ComfyUI workflow becomes a one-click recipe: pick a character, a product and a scene, queue it, and every clip is checked automatically for face and logo accuracy. Batches run overnight; Kling 3.0 is one click away through the Kie API." },
+    { id: "wf_h3", group: "wf", silent: true, title: "MiniMax H3 talking-head pipeline", desc: "An 87-node graph: reference images and voice in, a 15-second lip-synced talking head out, with dual sampling for realism." },
+    { id: "wf_krea", group: "wf", silent: true, title: "Krea 2 character sheet", desc: "One photo in, a four-view character sheet out, so the same face holds across every shot." },
+    { id: "wf_ltx", group: "wf", silent: true, title: "LTX 2.5 long-clip chaining", desc: "Segments chained with a guide frame so a talking head runs past a minute without a visible seam." },
+    { id: "wf_logo", group: "wf", silent: true, title: "Product logo fix", desc: "Qwen-Image-Edit composites the real logo back onto a generated garment so the brand mark stays exact." },
+    { id: "gf1", group: "ai", len: "1:00 of 8:11", title: "Faceless YouTube: a channelled Full Moon message", desc: "First minute of a full episode. A recurring AI presenter hosts; 70 animated cosmic B-roll shots, AI narration, word-highlight captions and music, all generated and cut on my own machine. AI-generated." },
+    { id: "gf2", group: "ai", len: "1:00 of 10:05", title: "Faceless YouTube: signs you're a starseed", desc: "Same presenter, new episode: 82 shots matched line-by-line to the script, from bedroom scenes to star cities, so the look stays consistent across a series. AI-generated." },
+    { id: "faceless", group: "ai", title: "Faceless YouTube: The Edge of a Black Hole", desc: "Script, AI voiceover, AI visuals and edit for a documentary-style channel. AI-generated." },
+    { id: "anim_paperwing", group: "anim", v: true, len: "0:57", title: "PAPERWING: The Scenic Route", desc: "A paper-plane birthday card crosses the city: pigeon, corgi, bus, rain, and a grandpa who finds it. Pixar-style 3D, music only, product on screen from the first shot to the end card. AI-generated, fictional brand." },
+    { id: "anim_making", group: "anim", v: true, silent: true, title: "How it was made", desc: "Character designs locked first, a 17-shot storyboard with four takes per shot, then each picked still animated and checked frame by frame." },
+    { id: "prod_cathoodie", group: "prod", v: true, p: true, silent: true, title: "Pet carrying hoodie", desc: "Airport, café, park, mirror: the hoodie and the cat hold in every shot. Hook caption, comment-to-DM ending. AI-generated." },
+    { id: "prod_pawcleaner", group: "prod", v: true, p: true, silent: true, title: "Dog paw cleaner", desc: "Muddy prints to clean paws. The cup keeps its exact shape through the dip, twist and rinse. AI-generated." },
+    { id: "prod_sharkblanket", group: "prod", v: true, p: true, silent: true, title: "Wearable shark blanket", desc: "Couch, kitchen, doorstep, bed: a plush product with teeth and fins that stays on-model across five scenes. AI-generated." },
+    { id: "ugc_luma", group: "ugc", v: true, len: "3 hooks", title: "LUMA serum: hook test", desc: "Three openers, one body. Same creator and cloned voice in every take. AI-generated." },
+    { id: "ugc_verdant", group: "ugc", v: true, title: "VERDANT greens", desc: "Morning-routine testimonial with pour and pack-shot cutaways. AI-generated." },
+    { id: "ugc_penni", group: "ugc", v: true, title: "PENNI budgeting app", desc: "App UGC: confession hook, screen cutaways, clear call to action. AI-generated." },
+    { id: "realestate_v", group: "ugc", v: true, title: "Property reel: a home that isn't built yet", desc: "Photoreal walkthrough shots cut as a vertical listing reel for pre-construction marketing. AI-generated." },
+  ];
+
+  const tile = (it) => `
+    <article class="tile">
+      <button class="frame ${it.p ? "p" : it.v ? "v" : "w"}" type="button" data-open="${it.id}" aria-label="Play ${it.title}">
+        <video data-preview src="v/${it.id}.mp4" poster="p/${it.id}.jpg" muted loop playsinline preload="none"></video>
+        <span class="open-hint"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>${it.silent ? "Play" : "Play with sound"}</span>${it.len ? `<span class="len">${it.len}</span>` : ""}
+      </button>
+      <h3>${it.title}</h3><p>${it.desc}</p>
+    </article>`;
+  const cmp = ITEMS.filter((i) => i.group === "compare");
+  document.getElementById("compare").innerHTML = tile(cmp[0]) + `<div class="compare-row">${tile(cmp[1])}${tile(cmp[2])}</div>`;
+  document.getElementById("shorts").innerHTML = ITEMS.filter((i) => i.group === "shorts").map(tile).join("");
+  document.getElementById("aiGrid").innerHTML = ITEMS.filter((i) => i.group === "ai").map(tile).join("");
+  document.getElementById("baytree").innerHTML = ITEMS.filter((i) => i.group === "baytree").map(tile).join("");
+  document.getElementById("capitaGrid").innerHTML = ITEMS.filter((i) => i.group === "capita").map(tile).join("");
+  document.getElementById("animGrid").innerHTML = ITEMS.filter((i) => i.group === "anim").map(tile).join("");
+  document.getElementById("ugcGrid").innerHTML = ITEMS.filter((i) => i.group === "ugc").map(tile).join("");
+  document.getElementById("prodGrid").innerHTML = ITEMS.filter((i) => i.group === "prod").map(tile).join("");
+  const STATICS = [
+    ["static_1_paw_before_after", "Static ad: paw cleaner before and after"],
+    ["static_2_paw_benefits", "Static ad: paw cleaner benefits"],
+    ["static_3_hoodie_everywhere", "Static ad: pet hoodie lifestyle"],
+    ["static_4_hoodie_problem", "Static ad: pet hoodie problem and solution"],
+  ];
+  document.getElementById("staticGrid").innerHTML = STATICS.map(([f, alt]) =>
+    `<a href="p/${f}.jpg" target="_blank" rel="noopener"><img src="p/${f}.jpg" alt="${alt}" loading="lazy" width="720" height="900"></a>`).join("");
+  document.getElementById("archGrid").innerHTML = ITEMS.filter((i) => i.group === "arch").map(tile).join("");
+  document.getElementById("studioRow").innerHTML = ITEMS.filter((i) => i.group === "studio").map(tile).join("");
+  document.getElementById("wfGrid").innerHTML = ITEMS.filter((i) => i.group === "wf").map(tile).join("");
+
+  // Muted previews play while on screen (and on hover); they pause when scrolled away.
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    const v = e.target;
+    if (e.isIntersecting && !reduce) { v.preload = "auto"; v.play().catch(() => {}); } else { v.pause(); }
+  }), { threshold: 0.6 });
+  document.querySelectorAll("video[data-preview]").forEach((v) => io.observe(v));
+
+  // Full player with sound, previous/next, Esc and top-right close.
+  const order = ITEMS.map((i) => i.id);
+  const byId = Object.fromEntries(ITEMS.map((i) => [i.id, i]));
+  const dlg = document.getElementById("dlg"), pl = document.getElementById("pl"), plv = document.getElementById("plv");
+  const reel = document.getElementById("reel");
+  let current = null, userPaused = false;
+  function show(id) {
+    const it = byId[id]; if (!it) return;
+    current = id;
+    pl.classList.toggle("v", Boolean(it.v));
+    const plf = document.getElementById("plf");
+    if (it.yt) {
+      plv.pause(); plv.removeAttribute("src"); plv.hidden = true; plf.hidden = false;
+      plf.src = `https://www.youtube-nocookie.com/embed/${it.yt}?autoplay=1&rel=0&modestbranding=1`;
+    } else {
+      plf.src = "about:blank"; plf.hidden = true; plv.hidden = false;
+      plv.src = `v/${id}.mp4`; plv.poster = `p/${id}.jpg`;
+    }
+    document.getElementById("plTitle").textContent = it.title;
+    document.querySelectorAll("video[data-preview]").forEach((v) => v.pause());
+    reel.pause();
+    if (!dlg.open) dlg.showModal();
+    if (!it.yt) plv.play().catch(() => {});
+  }
+  function step(d) { const i = order.indexOf(current); show(order[(i + d + order.length) % order.length]); }
+  function close() { plv.pause(); plv.removeAttribute("src"); plv.load(); document.getElementById("plf").src = "about:blank"; dlg.close(); if (!reduce && !userPaused) reel.play().catch(() => {}); }
+  document.addEventListener("click", (e) => { const t = e.target.closest("[data-open]"); if (t) show(t.dataset.open); });
+  document.getElementById("prev").onclick = () => step(-1);
+  document.getElementById("next").onclick = () => step(1);
+  document.getElementById("close").onclick = close;
+  dlg.addEventListener("cancel", (e) => { e.preventDefault(); close(); });
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
+  document.addEventListener("keydown", (e) => { if (!dlg.open) return; if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
+  let x0 = null;
+  plv.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  plv.addEventListener("touchend", (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1); x0 = null; });
+
+  if (UPWORK_URL) {
+    ["hireTop", "hireBottom"].forEach((id) => { const a = document.getElementById(id); a.href = UPWORK_URL; a.hidden = false; });
+    document.getElementById("availTop").hidden = true;
+  }
+  const rt = document.getElementById("reelToggle"), ri = document.getElementById("reelIco");
+  const setRt = (paused) => { rt.setAttribute("aria-pressed", String(paused)); rt.setAttribute("aria-label", paused ? "Play showreel" : "Pause showreel"); ri.setAttribute("d", paused ? "M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z" : "M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"); };
+  rt.onclick = () => { userPaused = !reel.paused; if (userPaused) reel.pause(); else reel.play().catch(() => {}); };
+  reel.addEventListener("play", () => setRt(false)); reel.addEventListener("pause", () => setRt(true));
+  if (reduce) reel.pause();
+
+  // Staggered reveal as each chapter scrolls in, plus a reading-progress line (ui-ux-pro-max motion + pattern).
+  if (!reduce && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("reveal");
+    const groups = document.querySelectorAll(".lane-head, .compare, .compare-row, .shorts, .ai, .offer, .stack");
+    groups.forEach((g) => [...g.children].forEach((c, i) => c.style.setProperty("--i", i)));
+    const ro = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); ro.unobserve(e.target); } }), { threshold: 0.15 });
+    const items = document.querySelectorAll(".tile, .lane-head, .offer > div, .stack > div");
+    items.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add("in"); else ro.observe(el); });
+    // Safety net: never leave work hidden if the observer is throttled (background tab, odd embed).
+    addEventListener("scroll", () => setTimeout(() => items.forEach((el) => { if (el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add("in"); }), 700), { passive: true });
+    const bar = document.getElementById("progress");
+    const onScroll = () => { const h = document.documentElement; bar.style.transform = `scaleX(${scrollY / Math.max(1, h.scrollHeight - innerHeight)})`; };
+    addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  }
+</script>
+</body>
+</html>
