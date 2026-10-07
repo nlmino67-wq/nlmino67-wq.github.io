@@ -1,0 +1,16 @@
+/* Nico Tan Leonardia · AI avatar page. Loads after ../site.css and ../law-firm-marketing/law.css and adds only
+   what differs here: a video-led hero, the six-frame face strip and the one-line statements under chapters. */
+
+/* hero: the film takes the wider column */
+@media (min-width:900px){
+  .av-hero .hero-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+}
+
+/* six frames of the same character: 2 across on phones, 3 from tablet up */
+.faces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-3)}
+@media (min-width:720px){ .faces{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-tile)} }
+
+.av-line{max-width:40ch;margin-top:var(--s-6);font:400 clamp(1.5rem,1.25rem + .9vw,2rem)/1.2 var(--f-display);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+
+.steps30+.ch-sub{margin-top:var(--s-8)}
+#more-ai .vid-row{align-items:start}
