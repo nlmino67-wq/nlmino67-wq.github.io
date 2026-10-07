@@ -33,10 +33,10 @@
 <header class="bar">
  <div class="wrap bar-row">
   <a class="wordmark" href="#top">Nico Tan Leonardia<span class="role">/ AI avatar video</span></a>
-  <nav class="nav-links" aria-label="Sections"><a href="#character">Same face</a><a href="#voice">Voice and lip-sync</a><a href="#volume">Monthly clips</a><a href="#tools">Tools</a></nav>
+  <nav class="nav-links" aria-label="Sections"><a href="#character">Same face</a><a href="#series">YouTube avatar</a><a href="#voice">Voice and lip-sync</a><a href="#volume">Monthly clips</a><a href="#tools">How I build it</a></nav>
   <a class="btn primary sm" href="https://www.upwork.com/freelancers/~01b8600a9862145362" target="_blank" rel="noopener"><span class="l-long">Hire me on Upwork</span><span class="l-short">Hire on Upwork</span><svg class="i i-arrow" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><span class="vh"> (opens Upwork in a new tab)</span></a>
  </div>
- <nav class="wrap navchips" aria-label="Sections"><a class="navchip" href="#character"><span>Same face</span></a><a class="navchip" href="#voice"><span>Voice and lip-sync</span></a><a class="navchip" href="#volume"><span>Monthly clips</span></a><a class="navchip" href="#tools"><span>Tools</span></a></nav>
+ <nav class="wrap navchips" aria-label="Sections"><a class="navchip" href="#character"><span>Same face</span></a><a class="navchip" href="#series"><span>YouTube avatar</span></a><a class="navchip" href="#voice"><span>Voice and lip-sync</span></a><a class="navchip" href="#volume"><span>Monthly clips</span></a><a class="navchip" href="#tools"><span>How I build it</span></a></nav>
 </header>
 <main id="main">
 
@@ -75,6 +75,21 @@
    <a class="tile tile--static" href="img/face_6.jpg" data-viewer data-group="faces" data-title="Park, autumn" aria-label="View frame: park, autumn"><span class="frame" data-ar="16x9"><img src="img/face_6.jpg" alt="The same character reading on a park bench." width="960" height="540" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg class="i i-expand" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-expand"/></svg><span class="txt">View</span></span></span></a>
   </div>
   <p class="av-line">For your creator, the same method starts from their photos, then the suit, and stays locked from clip 1 to clip 20.</p>
+ </section>
+
+ <section id="series" class="ch" aria-labelledby="h3series">
+  <header class="ch-head ch-head--split">
+   <h3 id="h3series" class="ch-title">A YouTube avatar that holds across episodes</h3>
+   <p class="ch-lede">One recurring AI presenter hosting a series. Two episode openings, the same host in both.</p>
+  </header>
+  <div class="pair">
+   <a class="tile" href="../v/gf1.mp4" data-video data-desc="The first minute of an 8-minute episode: the recurring presenter hosts, with 70 animated shots, AI narration, word-highlight captions and music." aria-label="Play with sound: Episode one, the recurring presenter. AI-generated, 1 minute.">
+    <span class="frame" data-ar="16x9"><img src="../p/gf1.jpg" alt="The recurring AI presenter in the opening of an episode." width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">1:00</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg><span class="txt">Play with sound</span></span></span>
+    <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span></span><span class="t">Episode one: the recurring presenter</span></span></a>
+   <a class="tile" href="../v/gf2.mp4" data-video data-desc="The next episode: 82 shots matched line by line to the script, so the look and the presenter hold across the series." aria-label="Play with sound: Next episode, same presenter. AI-generated, 1 minute.">
+    <span class="frame" data-ar="16x9"><img src="../p/gf2.jpg" alt="The same AI presenter in the opening of the next episode." width="1280" height="720" loading="lazy" decoding="async"><span class="tc" aria-hidden="true">1:00</span><span class="play" aria-hidden="true"><svg class="i i-play i-fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg><span class="txt">Play with sound</span></span></span>
+    <span class="cap"><span class="cap-top"><span class="tag tag--ai">AI-generated</span></span><span class="t">Next episode: same presenter</span></span></a>
+  </div>
  </section>
 
  <section id="voice" class="ch" aria-labelledby="h3voice">
@@ -140,16 +155,21 @@
 
  <section id="tools" class="ch" aria-labelledby="h3tools">
   <header class="ch-head ch-head--split">
-   <h3 id="h3tools" class="ch-title">Tools</h3>
-   <p class="ch-lede">Paid models when they give the best shot, my own machine when the clip needs twenty takes.</p>
+   <h3 id="h3tools" class="ch-title">How I build AI video</h3>
+   <p class="ch-lede">Custom ComfyUI pipelines on my own RTX 4090, run from a studio app I built. Paid models when a shot needs them.</p>
   </header>
-  <dl class="facts law-facts">
-   <div><dt>Video models</dt><dd>Higgsfield, plus Kling, Veo and Seedance through API</dd></div>
-   <div><dt>My own machine</dt><dd>ComfyUI pipelines on an RTX 4090, so experiments don't burn credits</dd></div>
-   <div><dt>Voice</dt><dd>Voice cloning from a short clean recording</dd></div>
-   <div><dt>Lip-sync</dt><dd>Audio-driven lip-sync, checked clip by clip</dd></div>
-   <div><dt>Edit</dt><dd>Premiere Pro and DaVinci Resolve: captions, sound, 9:16 delivery</dd></div>
-  </dl>
+  <div class="grid proc">
+   <figure class="shot" style="--lg:7">
+    <img src="../p/studio.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Screenshot of a studio app I built: a six-scene storyboard, a scene list and a render pipeline.">
+    <figcaption><span class="tag tag--real">Screenshot</span> <strong>A studio app I built.</strong> Every workflow becomes a one-click recipe: pick a character and a scene, queue it, and every clip is checked for face accuracy.</figcaption>
+   </figure>
+   <div class="stack-col" style="--lg:5">
+    <h4 class="sub-h">The stack</h4>
+    <dl class="stack"><div><dt>Video</dt><dd>MiniMax H3 · LTX 2.5 · Wan 2.2</dd></div><div><dt>Image</dt><dd>Krea 2 · Qwen-Image-Edit · Z-Image</dd></div><div><dt>Voice &amp; audio</dt><dd>Qwen3-TTS · IndexTTS-2 · Kokoro · ACE-Step · faster-whisper</dd></div><div><dt>Paid models</dt><dd>Higgsfield · Kling, Veo and Seedance through API</dd></div><div><dt>Edit</dt><dd>Premiere Pro · DaVinci Resolve</dd></div><div><dt>Hardware</dt><dd>My own RTX 4090, so experiments don't burn credits</dd></div></dl>
+   </div>
+  </div>
+  <h4 class="sub-h caps-h">What that gets you</h4>
+  <ul class="caps grid"><li style="--md:3;--lg:3"><strong>The same face in every shot.</strong> One photo becomes a four-view character sheet.</li><li style="--md:3;--lg:3"><strong>The creator's own voice.</strong> Cloned from a short clean recording.</li><li style="--md:3;--lg:3"><strong>Talking heads past a minute.</strong> Segments chained with no visible seam.</li><li style="--md:3;--lg:3"><strong>Checked before the edit.</strong> Every clip is checked for face, lips and voice.</li></ul>
  </section>
 
  <section id="more-ai" class="ch" aria-labelledby="h3more">

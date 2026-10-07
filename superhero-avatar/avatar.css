@@ -14,3 +14,9 @@
 
 .steps30+.ch-sub{margin-top:var(--s-8)}
 #more-ai .vid-row{align-items:start}
+
+/* two episode openings side by side */
+.pair{display:grid;gap:var(--s-6) var(--gap-tile)}
+@media (min-width:720px){ .pair{grid-template-columns:repeat(2,minmax(0,1fr))} }
+#series .ch-title{font-size:clamp(2.5rem,1.3rem + 4.4vw,4.5rem)}
+#tools .caps-h{margin-top:var(--s-7)}
