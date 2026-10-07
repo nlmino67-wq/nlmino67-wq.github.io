@@ -148,12 +148,14 @@
       const tagText = tag ? tag.textContent : (tile.dataset.tag || "");
       opener = tile;
       err.hidden = true;
-      stage.dataset.ar = $(".frame--pillar", tile) ? "9x16" : "16x9";   /* the pillarboxed tile holds the vertical video */
+      /* native portrait tiles carry data-ar="9x16" on their link; the pillarboxed tile is the same case */
+      stage.dataset.ar = tile.dataset.ar || ($(".frame--pillar", tile) ? "9x16" : "16x9");
       $("#vpTitle").textContent = title;
       $("#vpName").textContent = title;
       $("#vpDesc").textContent = tile.dataset.desc || textOf(tile, ".desc");
       $("#vpTag").textContent = tagText;
-      $("#vpTag").className = tag ? tag.className : (tagText ? "tag tag--real" : "tag");
+      /* the showreel has no tag inside its link: AI labels get the outlined chip, client labels the filled one */
+      $("#vpTag").className = tag ? tag.className : (tagText ? (/^AI/i.test(tagText) ? "tag tag--ai" : "tag tag--real") : "tag");
       $("#vpFile").href = tile.href;
       video.setAttribute("aria-label", title);
       if (thumb) video.poster = thumb.currentSrc || thumb.src;
