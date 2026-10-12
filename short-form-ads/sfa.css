@@ -1,0 +1,10 @@
+/* Short-form ads page: rules for the renamed first chapter and the chapter before the band. Loads after ads.css. */
+.proof-sec>#ads{padding-top:var(--s-5)}
+@media (min-width:900px){ .proof-sec>#ads{padding-top:var(--s-4)} }
+#shorts{padding-bottom:var(--s-8)}
+
+/* product reels plus the property reel: four tiles, two across on phones, four across from 600px */
+@media (min-width:600px){ .ads-prod.ads-prod--4{grid-template-columns:repeat(4,minmax(0,1fr));max-width:1000px} }
+
+/* two-column phone grid: centre the fifth short instead of leaving it alone on the left */
+@media (max-width:599px){ .edit-portrait .tile:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - var(--s-3)/2)} }
