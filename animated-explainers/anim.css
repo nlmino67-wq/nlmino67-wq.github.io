@@ -1,0 +1,17 @@
+/* AI animated explainers page: large portrait pairs/trios, one wide tile, studio line. Loads last. */
+.proof-sec>#animation{padding-top:var(--s-5)}
+@media (min-width:900px){ .proof-sec>#animation{padding-top:var(--s-4)} }
+#explainers{padding-bottom:var(--s-8)}
+
+/* two 9:16 tiles side by side, kept large */
+.ai-portrait.anim-two,.ai-portrait.anim-three{margin-top:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:600px){
+  .ai-portrait.anim-two{max-width:600px}
+  .ai-portrait.anim-three{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}
+}
+.anim-line{margin-top:var(--s-5)}
+/* three on two-column phones: centre the third */
+@media (max-width:599px){ .anim-three .tile:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - var(--s-3)/2)} }
+
+.anim-wide{max-width:760px}
+.mg-block .ai-proof{margin-top:0;padding-top:0;border-top:0}
