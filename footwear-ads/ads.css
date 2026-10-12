@@ -20,3 +20,26 @@
 
 /* plan: the sheet sits on its own under the three steps */
 #deliverables .sheet{max-width:34rem}
+
+/* proof-first layout: tighter hero, chapters start right under it */
+.hero{padding-block:var(--s-5) var(--s-3)}
+.proof-sec{padding-top:0}
+.proof-sec>#footage{padding-top:var(--s-5)}
+.plan-sec>.ch{padding-top:var(--s-8)}
+@media (min-width:900px){
+  .hero{padding-block:var(--s-6) var(--s-4)}
+  .proof-sec>#footage{padding-top:var(--s-6)}
+  .plan-sec>.ch{padding-top:var(--s-9)}
+}
+/* band now sits between chapters */
+#variants{padding-bottom:var(--s-8)}
+
+/* compact chapter heads so the first videos sit near the fold */
+.proof-sec .ch,.plan-sec .ch{--ch-fs:clamp(2.5rem,1.3rem + 4vw,4.25rem)}
+.proof-sec .ch-head,.plan-sec .ch-head{gap:var(--s-2);margin-bottom:var(--s-4)}
+.proof-sec .edit-client{margin-bottom:var(--s-4)}
+@media (min-width:900px){
+  .hero{padding-block:var(--s-4) var(--s-2)}
+  .proof-sec>#footage{padding-top:var(--s-4)}
+  .proof-sec .ch-head{margin-bottom:var(--s-4)}
+}
