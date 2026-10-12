@@ -8,6 +8,10 @@
 .fan--tall .fan-b{left:31%;top:0}
 .fan--tall .fan-c{right:3%;top:12%}
 
+/* Facebook ads: three 9:16 tiles, kept large */
+.ai-portrait.ads-fb{margin-top:0}
+@media (min-width:600px){ .ai-portrait.ads-fb{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px} }
+
 /* versions to test */
 .ads-one{display:grid;grid-template-columns:minmax(0,1fr);max-width:240px}
 .ads-prod{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-5) var(--s-3);align-items:start}
