@@ -1,0 +1,53 @@
+/* Luxury watch channel page: spec-edit hero tile with a "rendering" state, dealer split, raw-to-final row.
+   Loads after site.css, law.css, ads.css and pod.css (the podcast page pattern) and adds only what this page needs. */
+
+/* ---------- Chapter spacing: proof first, chapters start right under the hero ---------- */
+.proof-sec>#dealer{padding-top:var(--s-5)}
+@media (min-width:900px){ .proof-sec>#dealer{padding-top:var(--s-6)} }
+#shorts{padding-bottom:var(--s-8)}
+.proof-sec .ch-title{max-width:20ch}
+.plan-sec>#holds{padding-top:var(--s-7)}
+@media (min-width:900px){ .plan-sec>#holds{padding-top:var(--s-8)} }
+.plan-sec>#working{padding-bottom:var(--s-8)}
+
+/* ---------- Hero spec tile ---------- */
+.vid-hero .tile--spec .frame .play{width:auto;height:32px;padding:0 12px 0 10px;justify-content:flex-start;font-size:13px}
+.vid-hero .tile--spec .frame .play .txt{display:inline}
+.vid-hero .tile--spec .frame .play .i{width:14px;height:14px}
+
+/* Until v/xanco_spec_720p.mp4 exists the tile is a poster with a status line, not a button. */
+.tile--spec .spec-status{position:absolute;left:8px;bottom:8px;z-index:var(--z-label);display:inline-flex;align-items:center;gap:10px;
+  max-width:calc(100% - 16px);padding:9px 12px;border-radius:var(--r-1);background:var(--scrim);
+  font:500 13px/1.35 var(--f-sans);color:var(--ink);text-wrap:balance}
+.tile--spec .spec-status::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--soft)}
+.tile--spec:not(.is-pending) .spec-status{display:none}
+.tile--spec.is-pending{cursor:default}
+.tile--spec.is-pending .frame .play{display:none}
+.tile--spec.is-pending:active .frame{transform:none}
+@media (hover:hover) and (pointer:fine){
+  .tile--spec.is-pending:hover .frame img{transform:none}
+  .tile--spec.is-pending:hover .frame::after{box-shadow:inset 0 0 0 1px var(--ring)}
+}
+
+/* ---------- Dealer chapter: two portrait Shorts beside the text on wide screens ---------- */
+.lux-split{display:grid;gap:var(--s-5)}
+.lux-split .ch-head{margin-bottom:0}
+.lux-split .ai-portrait{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-5) var(--gap-tile);max-width:520px;margin-top:0}
+.lux-split .vid-note{margin-top:var(--s-5)}
+@media (min-width:900px){
+  .lux-split{grid-template-columns:minmax(0,6fr) minmax(0,5fr);column-gap:var(--s-8);align-items:center}
+  .lux-split .ch-head{order:2}
+  .lux-split .lux-tiles{order:1}
+}
+
+/* ---------- Long-form chapter: raw-to-final tile beside one plain paragraph ---------- */
+.lux-raw{display:grid;gap:var(--s-5);margin-top:var(--s-7);align-items:center}
+.lux-sub-h{font:400 var(--t-case)/1.05 var(--f-display);letter-spacing:-.01em}
+.lux-raw .vid-line{margin-top:var(--s-3)}
+@media (min-width:900px){
+  .lux-raw{grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:var(--s-7);margin-top:var(--s-8)}
+}
+
+/* ---------- Working with Xanco: sentence beside the terms sheet ---------- */
+.lux-work .mg-lead{max-width:30ch}
+.lux-work .sheet{max-width:36rem}
