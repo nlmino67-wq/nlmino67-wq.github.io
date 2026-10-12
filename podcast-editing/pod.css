@@ -1,0 +1,21 @@
+/* Podcast editing page: hero video tile, YouTube link tiles, four-step row. Loads after ads.css. */
+.proof-sec>#episodes{padding-top:var(--s-5)}
+@media (min-width:900px){ .proof-sec>#episodes{padding-top:var(--s-6)} }
+#teasers{padding-bottom:var(--s-8)}
+.vid-hero .micro{margin-top:var(--s-3);text-align:center}
+.vid-hero .tile--cmp .frame .tc{right:8px}   /* hero tile: plain corner, the poster has no empty band to sit in */
+
+/* YouTube link tiles: the label is an "open" prompt, kept visible on touch screens */
+.tile--yt .frame .play{width:auto;padding:0 10px 0 8px}
+.tile--yt .frame .play .txt{display:inline}
+@media (hover:none){ .tile--yt .frame .play{opacity:1} }
+
+/* three portrait shorts: centre the third on two-column phones */
+@media (max-width:599px){ .pod-shorts .tile:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - var(--s-3)/2)} }
+
+/* four steps: stack on phones, one row of four from 900px */
+@media (min-width:900px){ .steps30.steps30--4{grid-template-columns:repeat(4,minmax(0,1fr))} }
+.steps30--4 .s-d{max-width:30ch}
+
+/* hero tile keeps its Play label on phones (law.css hides it on narrow comparison tiles) */
+.vid-hero .tile--cmp .frame .play{display:inline-flex}
