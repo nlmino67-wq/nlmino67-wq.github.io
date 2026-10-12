@@ -1,0 +1,22 @@
+/* Page-local additions for the footwear ads page. Loads after site.css and law.css. */
+
+/* hero fan: law.css sizes the cards 3:4 for tall infographics; these are 9:16 posters */
+.fan--tall .fan-img{width:38%;aspect-ratio:9/16}
+.fan--tall .fan-img img{object-position:center}
+.fan--tall{aspect-ratio:1/.8}
+.fan--tall .fan-a{left:3%;top:14%}
+.fan--tall .fan-b{left:31%;top:0}
+.fan--tall .fan-c{right:3%;top:12%}
+
+/* versions to test */
+.ads-one{display:grid;grid-template-columns:minmax(0,1fr);max-width:240px}
+.ads-prod{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-5) var(--s-3);align-items:start}
+.ads-prod .tag{height:auto;min-height:22px;padding-block:4px;white-space:normal;line-height:1.25}
+.frame[data-ar="3x4"]{aspect-ratio:3/4}
+.ads-close{max-width:62ch;margin-top:var(--s-7);font-size:var(--t-lead);line-height:1.55;color:var(--soft-2)}
+@media (min-width:600px){
+  .ads-prod{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-5) var(--gap-tile);max-width:760px}
+}
+
+/* plan: the sheet sits on its own under the three steps */
+#deliverables .sheet{max-width:34rem}
