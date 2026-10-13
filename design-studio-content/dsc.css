@@ -35,3 +35,6 @@
   .dsc-acc li{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.6fr);gap:var(--s-6);align-items:baseline}
 }
 .plan-sec>#accounts{padding-bottom:0}
+
+/* museum walkthrough: one large 16:9 tile */
+.vid-row.dsc-one{grid-template-columns:minmax(0,1fr);max-width:1000px}
