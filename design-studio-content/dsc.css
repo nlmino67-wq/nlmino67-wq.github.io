@@ -1,0 +1,37 @@
+/* Design studio content page. Loads after ads.css and pod.css. */
+.proof-sec>#design{padding-top:var(--s-5)}
+@media (min-width:900px){ .proof-sec>#design{padding-top:var(--s-4)} }
+#ai{padding-bottom:var(--s-8)}
+
+/* hero fan: the left card is a 4:5 carousel cover, the other two are 9:16 */
+.dsc-fan .fan-a{aspect-ratio:4/5;top:20%}
+
+/* carousel: four 4:5 slides in reading order, two across on phones */
+.frame[data-ar="4x5"]{aspect-ratio:4/5}
+.dsc-car{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-3)}
+@media (min-width:700px){ .dsc-car{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-2)} }
+
+/* raw to final: two wide comparison tiles */
+@media (min-width:700px){ .vid-row.dsc-two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1000px} }
+
+/* AI: a 16:9 tile and a 9:16 tile at the same height (16/9 divided by 9/16 = 3.16) */
+.dsc-ai{display:grid;gap:var(--s-5) var(--gap-tile);align-items:start}
+.dsc-ai .tile:last-child{max-width:240px}
+@media (min-width:700px){
+  .dsc-ai{grid-template-columns:minmax(0,3.16fr) minmax(0,1fr);max-width:1000px}
+  .dsc-ai .tile:last-child{max-width:none}
+}
+
+/* accounts: name, role, result on one row from 900px */
+.dsc-acc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-3)}
+.dsc-acc li{display:grid;gap:var(--s-2);padding:var(--s-5) 0;border-bottom:1px solid var(--line-3)}
+.dsc-acc-name{display:inline-flex;align-items:center;gap:var(--s-2);width:fit-content;font:400 clamp(1.75rem,1.4rem + 1.2vw,2.25rem)/1.1 var(--f-display);color:inherit;text-decoration:none}
+.dsc-acc-name .i{width:20px;height:20px;transition:transform .2s ease}
+.dsc-acc-name:hover .i,.dsc-acc-name:focus-visible .i{transform:translate(2px,-2px)}
+.dsc-acc-name:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.dsc-acc-role{margin:0;font-size:var(--t-body);color:var(--soft-2)}
+.dsc-acc-res{margin:0;font-size:var(--t-lead);line-height:1.5}
+@media (min-width:900px){
+  .dsc-acc li{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.6fr);gap:var(--s-6);align-items:baseline}
+}
+.plan-sec>#accounts{padding-bottom:0}
