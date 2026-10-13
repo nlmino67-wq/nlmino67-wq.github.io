@@ -38,3 +38,7 @@
 
 /* museum walkthrough: one large 16:9 tile */
 .vid-row.dsc-one{grid-template-columns:minmax(0,1fr);max-width:1000px}
+
+/* Gallery 3 stills: two across on phones, three from 700px */
+.dsc-g3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2)}
+@media (min-width:700px){ .dsc-g3{grid-template-columns:repeat(3,minmax(0,1fr))} }
