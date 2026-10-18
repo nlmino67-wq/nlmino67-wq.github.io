@@ -1,0 +1,32 @@
+/* Mortgage content page. Loads after ads.css, pod.css and dsc.css. */
+.proof-sec>#strategy{padding-top:var(--s-5)}
+@media (min-width:900px){ .proof-sec>#strategy{padding-top:var(--s-4)} }
+#reach{padding-bottom:var(--s-8)}
+
+/* hero fan: the left card is an A4 strategy page, the other two are 9:16 */
+.mtg-fan .fan-a{aspect-ratio:1240/1754;top:18%}
+.mtg-fan .fan-a img{object-position:top}
+
+/* strategy pages: A4 portrait, two across on phones, four from 900px */
+.frame[data-ar="a4"]{aspect-ratio:1240/1754;background:#fff}
+.frame[data-ar="a4"] img{object-fit:cover;object-position:top}
+.mtg-aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-3)}
+@media (min-width:900px){ .mtg-aud{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-2)} }
+.mtg-aud .cap .t{font-size:.95rem}
+
+/* what the plan covered: two columns of short points from 700px */
+.mtg-cov{list-style:none;margin:var(--s-5) 0 0;padding:0;display:grid;gap:var(--s-2) var(--s-6);max-width:1000px}
+.mtg-cov li{position:relative;padding-left:var(--s-5);line-height:1.5}
+.mtg-cov li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:1.5px;background:currentColor;opacity:.6}
+@media (min-width:700px){ .mtg-cov{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* long-form: two YouTube tiles side by side */
+@media (min-width:700px){ .vid-row.mtg-two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1000px} }
+
+/* Baytree: two 9:16 tiles, kept narrow */
+.mtg-bay{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap-tile);max-width:520px}
+.mtg-bay .cap-top{min-width:0}
+.mtg-bay .tag{white-space:normal;line-height:1.35;max-width:100%}
+
+/* sample week note under the week cards */
+.mtg-week-note{margin:var(--s-4) 0 0;color:var(--soft-2);max-width:60ch}
