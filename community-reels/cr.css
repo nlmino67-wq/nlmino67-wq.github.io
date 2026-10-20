@@ -1,0 +1,5 @@
+/* Community reels page. Loads after pod.css. */
+.cr-hero{max-width:340px;justify-self:center;width:100%}
+.cr-sub{margin-top:var(--s-7)}
+.cr-two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:560px}
+@media (min-width:900px){ #steps .steps30{grid-template-columns:repeat(3,minmax(0,1fr))} }
