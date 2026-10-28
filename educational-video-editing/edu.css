@@ -1,0 +1,8 @@
+/* Educational video editing page. Loads after fin.css. */
+.edu-sub{margin-top:var(--s-7)}
+.vid-row.edu-one-v{grid-template-columns:minmax(0,1fr);max-width:300px}
+@media (min-width:720px){
+ #presenter .vid-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #lessons .vid-row.edu-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.wip-note{margin-top:var(--s-4);max-width:62ch}
