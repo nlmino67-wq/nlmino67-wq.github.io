@@ -3,3 +3,8 @@
 @media (min-width:720px){
  .ai-portrait.aiads-two{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+@media (min-width:720px){
+ .vid-row.aiads-grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.id-rules{margin:var(--s-6) 0 0;padding-left:1.25em;max-width:68ch;display:grid;gap:var(--s-3)}
+.id-rules li{padding-left:.25em}
