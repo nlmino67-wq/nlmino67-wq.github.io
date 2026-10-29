@@ -1,0 +1,5 @@
+/* AI video ads page. Loads after fin.css. */
+.vid-hero.aiads-hero{max-width:340px;width:100%;justify-self:center;margin-inline:auto}
+@media (min-width:720px){
+ .ai-portrait.aiads-two{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
