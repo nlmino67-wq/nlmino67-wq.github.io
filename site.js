@@ -31,11 +31,11 @@
     renders: "Architecture", onsite: "Filmed on site", property: "AI property reel",
   };
   const HOME = {
-    showreels: "top", ugc: "ugc", product: "product", statics: "product", animated: "animated", faceless: "faceless",
-    baytree: "baytree", george: "george", renders: "architecture", onsite: "capita", property: "property",
+    showreels: "top", ugc: "ugc", drama: "drama", product: "product", statics: "statics", animated: "animated", faceless: "faceless",
+    shortform: "shortform", sponsor: "sponsor", longform: "longform", renders: "architecture", onsite: "capita", property: "property",
   };
   const ALIASES = {
-    tools: "process", editing: "clients", arch: "architecture", compare: "george", shorts: "george",
+    tools: "process", editing: "clients", arch: "architecture", compare: "longform", shorts: "shortform", baytree: "shortform", george: "longform",
     animGrid: "animated", ugcGrid: "ugc", prodGrid: "product", aiGrid: "faceless", capitaGrid: "capita",
   };
   const AR = { "16x9": "16:9", "9x16": "9:16", "3x4": "3:4", "4x5": "4:5" };
@@ -112,7 +112,7 @@
     const byId = new Map(items.map((it) => [it.id, it]));
     const sets = [{ key: "showreels", ids: ["reel_ai", "reel"].filter((id) => byId.has(id)) }];
     $$("[data-set]").forEach((box) => {
-      const ids = $$("[data-id]", box).filter((el) => el.closest("[data-set]") === box).map((el) => el.dataset.id).filter((id) => byId.has(id));
+      const ids = $$("[data-id]", box).filter((el) => el.closest("[data-set]") === box && !el.closest("[aria-hidden=\"true\"]")).map((el) => el.dataset.id).filter((id) => byId.has(id));
       if (ids.length) sets.push({ key: box.dataset.set, ids });
     });
     const seq = sets.flatMap((s) => s.ids.map((id, i) => ({ id, set: s.key, i, n: s.ids.length })));
