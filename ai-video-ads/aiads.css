@@ -26,3 +26,27 @@
 .id-dl dt{opacity:.7}.id-dl dd{margin:0;font-variant-numeric:tabular-nums}
 .id-dl .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 @media (prefers-reduced-motion:reduce){.id-stage model-viewer{--auto-rotate:none}}
+/* AI ads carousel: swipe, scroll or use the buttons */
+.car-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s-5)}
+.car-ctl{display:flex;gap:8px;flex:none}
+.car-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:transparent;color:inherit;cursor:pointer;transition:background .15s,border-color .15s,opacity .15s}
+.car-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.45)}
+.car-btn:focus-visible{outline:2px solid #50c6d9;outline-offset:2px}
+.car-btn:disabled{opacity:.3;cursor:default;background:transparent}
+.car-btn .i{width:20px;height:20px}
+.car{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(200px,24vw,260px);gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:12px;scrollbar-width:thin}
+.car>.tile{scroll-snap-align:start}
+.car:focus-visible{outline:2px solid #50c6d9;outline-offset:4px;border-radius:12px}
+/* Real-footage strip: moves on its own, pauses on hover or focus */
+.marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marq-track{display:flex;width:max-content;animation:marq 48s linear infinite}
+.marq-set{display:flex;gap:16px;padding-right:16px}
+.marq-set>.tile{flex:none;width:clamp(180px,20vw,230px)}
+.marq:hover .marq-track,.marq:focus-within .marq-track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+ .marq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+ .marq-track{animation:none}
+ .marq-set[aria-hidden="true"]{display:none}
+ .car{scroll-behavior:auto}
+}
