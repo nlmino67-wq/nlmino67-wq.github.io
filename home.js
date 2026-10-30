@@ -1,8 +1,33 @@
-/* Nico Tan Leonardia · home page motion. Vanilla JS, one IIFE. Loads before site.js so the rail clones exist
-   when site.js builds its registry and binds previews. Every part fails open: without GSAP the page is fully
-   visible and rails scroll natively. Opacity is only ever set from here, never from CSS. */
+/* Nico Tan Leonardia · home page motion. Vanilla JS, one IIFE. Loads before site.js so the clones exist when site.js builds
+   its registry and binds previews. Every part fails open: without GSAP the page is fully visible and rails scroll natively.
+   Opacity is only ever set from here, never from CSS.
+   No pins, no scrub-driven reveals: the only scroll-linked motion is the hero parallax (desktop) and the column speed-up. */
 (() => {
   "use strict";
+
+  /* ================= SWAP POINTS: contact details and the media files that are stand-ins today ================= */
+  const CONTACT = { email: "nlmino67@gmail.com", telegram: "https://t.me/+639171776426" };
+  const MEDIA = {
+    // STAND-INS (existing files). Replace each with the FINAL path in the comment when the render lands.
+    heroWide: { src: "media/hero_wide.mp4", poster: "img/hero_wide.jpg" },       // FINAL media/hero_wide.mp4  + img/hero_wide.jpg
+    heroTall: { src: "media/hero_tall.mp4", poster: "img/hero_tall.jpg" },   // FINAL media/hero_tall.mp4  + img/hero_tall.jpg
+    reel: { src: "v/reel_v2.mp4", poster: "p/reel_v2.jpg" },                           // FINAL v/reel_v2.mp4        + p/reel_v2.jpg
+    rawFinal: { src: "v/raw_to_final.mp4", poster: "p/raw_to_final.jpg" },       // FINAL v/raw_to_final.mp4   + p/raw_to_final.jpg
+  };
+  // Proof captions for the real hero cut (4 pieces, 26 s loop). Keep captionsReady false while heroWide/heroTall are stand-ins:
+  // the captions describe the real pieces and would be false on a stand-in film.
+  const HERO_CAPTIONS = {
+    captionsReady: true,
+    cues: [
+      [0, 7, "Baytree Cars, YouTube Short, 2.5M views"],
+      [7, 13, "Baytree Cars, YouTube Short, 2.2M views"],
+      [13, 20, "George Cordon, YouTube long-form, every 2026 episode"],
+      [20, 26, "Italian skincare brand, 5-minute drama ad, AI-generated"],
+    ],
+  };
+  const OVERRIDE = window.NICO_MEDIA_OVERRIDE || null;      // test hook only
+  if (OVERRIDE && OVERRIDE.captionsReady) HERO_CAPTIONS.captionsReady = true;
+
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const RM = matchMedia("(prefers-reduced-motion: reduce)");
@@ -12,7 +37,7 @@
   const quiet = (p) => { if (p && p.catch) p.catch(() => {}); };
   const G = window.gsap;
   const ST = window.ScrollTrigger;
-  const HOME = (window.NICO_HOME = { loops: [], rails: [], wall: { tracks: [], tweens: [], videos: [] } });
+  const HOME = (window.NICO_HOME = { loops: [], rails: [], cols: [], playing: () => $$("video").filter((v) => !v.paused && !v.ended && v.closest("#player") === null).length });
   const debounce = (fn, ms) => { let t = 0; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
   const refreshSoon = debounce(() => { if (ST) ST.refresh(); }, 120);
   const smooth = () => (RM.matches ? "auto" : "smooth");
@@ -214,171 +239,194 @@
     };
   }
 
-  function buildPan(r, signal) {                                   // desktop: the section pins and the track slides
-    const { el, track, sec } = r;
-    const gutter = parseFloat(getComputedStyle(el).paddingLeft) || 0;
-    const dist = () => Math.max(0, track.scrollWidth - innerWidth + 2 * gutter);   // last tile ends one gutter inside the screen
-    const PAN_PACE = 0.7;                                          // tiles travel 1/0.7 px per scrolled px: about 2 flings per screen of tiles
-    if (dist() < 40) return null;
-    el.style.overflowX = "hidden";
-    el.scrollLeft = 0;
-    lockScroll(el, signal);
-    const end = () => "+=" + Math.round(dist() * PAN_PACE);
-    const tw = G.to(track, { x: () => -dist(), ease: "none",
-      scrollTrigger: { trigger: sec, start: "top top", end, pin: true, scrub: 0.8, invalidateOnRefresh: true } });
-    const line = $(".pan-progress", sec);
-    const lw = line && G.fromTo(line, { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, ease: "none",
-      scrollTrigger: { trigger: sec, start: "top top", end, scrub: true, invalidateOnRefresh: true } });
-    const goTo = (p) => { const s = tw.scrollTrigger; window.scrollTo({ top: s.start + G.utils.clamp(0, 1, p) * (s.end - s.start), behavior: smooth() }); };
-    r.next = () => { const d = dist(); if (d) goTo(tw.scrollTrigger.progress + Math.min(el.clientWidth * 0.75, 900) / d); };
-    r.prev = () => { const d = dist(); if (d) goTo(tw.scrollTrigger.progress - Math.min(el.clientWidth * 0.75, 900) / d); };
-    r.to = (i) => { const it = r.originals[i], d = dist(); if (it && d) goTo((relX(r, it) - gutter) / d); };
-    r.jump = (edge) => goTo(edge < 0 ? 0 : 1);
-    r.reveal = (it) => { const b = it.getBoundingClientRect(); if (b.left < 0 || b.right > innerWidth) r.to(r.originals.indexOf(it)); };
+  /* ================= video scheduler: at most 3 videos playing (2 under 600px), hero first, then the most visible ================= */
+  const S = { modal: false, heroOn: false, heroRatio: 0 };
+  const maxPlaying = () => (matchMedia("(max-width: 599px)").matches ? 2 : 3);
+  const autoOk = () => !RM.matches && !lowData();
+  let heroV = null;
+  let vids = [];
+
+  const ensureSrc = (v) => { if (!v.getAttribute("src") && v.dataset.src) { v.src = v.dataset.src; v.preload = "auto"; } };
+  const playV = (v) => { ensureSrc(v); if (v.paused) quiet(v.play()); };
+  const stopV = (v) => { if (!v.paused) v.pause(); };
+
+  function schedule() {
+    const gate = !S.modal && !document.hidden;
+    const pick = [];
+    if (gate && heroV && S.heroOn && S.heroRatio > 0.05) pick.push(heroV);
+    if (gate && autoOk()) {
+      vids.filter((v) => v._ratio >= 0.35).sort((a, b) => b._ratio - a._ratio).forEach((v) => { if (pick.length < maxPlaying()) pick.push(v); });
+    }
+    [heroV, ...vids].filter(Boolean).forEach((v) => (pick.includes(v) ? playV(v) : stopV(v)));
+  }
+
+  function resolveMedia() {
+    $$("video[data-media]").forEach((v) => {
+      const m = MEDIA[v.dataset.media];
+      if (!m) return;
+      v.dataset.src = m.src;
+      v.poster = m.poster;
+    });
+  }
+
+  function initScheduler() {
+    vids = $$("video.sv");
+    vids.forEach((v) => { v.muted = true; v._ratio = hasIO ? 0 : 1; });
+    if (!hasIO) { schedule(); return; }
+    const near = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting && autoOk()) ensureSrc(e.target); }), { rootMargin: "100% 0px 100% 0px" });
+    const seen = new IntersectionObserver((es) => { es.forEach((e) => { e.target._ratio = e.isIntersecting ? e.intersectionRatio : 0; }); schedule(); }, { threshold: [0, 0.35, 0.6, 1] });
+    vids.forEach((v) => { near.observe(v); seen.observe(v); });
+    document.addEventListener("visibilitychange", schedule);
+    const pl = $("#player");
+    if (pl && "MutationObserver" in window) new MutationObserver(() => { S.modal = pl.open; schedule(); }).observe(pl, { attributes: true, attributeFilter: ["open"] });
+  }
+
+  /* ================= hero film ================= */
+  function initHero() {
+    heroV = $("#heroFilm");
+    if (!heroV) return;
+    const btn = $("#heroBtn");
+    const proof = $("#heroProof");
+    const wide = matchMedia("(min-width: 600px)");
+    heroV.muted = true;
+    S.heroOn = autoOk();
+    const paint = () => {
+      if (!btn) return;
+      btn.setAttribute("aria-pressed", String(!S.heroOn));
+      btn.setAttribute("aria-label", S.heroOn ? "Pause film" : "Play film");
+    };
+    const load = () => {
+      const m = wide.matches ? MEDIA.heroWide : MEDIA.heroTall;
+      heroV.poster = m.poster;
+      if (m.src === heroV.dataset.k) return;
+      heroV.dataset.k = m.src;
+      heroV.dataset.src = m.src;
+      heroV.removeAttribute("src");
+      if (autoOk()) ensureSrc(heroV);
+    };
+    load();
+    if (wide.addEventListener) wide.addEventListener("change", () => { load(); schedule(); });
+    if (btn) btn.addEventListener("click", () => { S.heroOn = !S.heroOn; paint(); schedule(); });
+    if (hasIO) new IntersectionObserver(([e]) => { S.heroRatio = e.isIntersecting ? e.intersectionRatio : 0; schedule(); }, { threshold: [0, 0.05, 0.35] }).observe($("#top") || heroV);
+    else S.heroRatio = 1;
+    if (proof && HERO_CAPTIONS.captionsReady) {
+      let cur = -1;
+      heroV.addEventListener("timeupdate", () => {
+        const t = heroV.currentTime;
+        const i = HERO_CAPTIONS.cues.findIndex(([a, b]) => t >= a && t < b);
+        if (i === cur || i < 0) return;
+        cur = i;
+        proof.textContent = HERO_CAPTIONS.cues[i][2];
+        proof.hidden = false;
+      });
+    }
+    const onRM = () => { if (RM.matches) S.heroOn = false; paint(); schedule(); };
+    if (RM.addEventListener) RM.addEventListener("change", onRM);
+    paint();
+  }
+
+  /* ================= volume wall: three columns drift at their own speed, scrolling fast pushes them ================= */
+  function wallColumns(signal) {
+    const wall = $(".vol");
+    const stacks = wall ? $$(".vol-stack", wall) : [];
+    if (!stacks.length) return null;
+    const durs = $$(".vol-col", wall).map((c) => Number(c.dataset.dur) || 54);
+    const clones = [];
+    stacks.forEach((st) => Array.from(st.children).forEach((li) => { const c = cloneItem(li); clones.push(c); st.appendChild(c); }));
+    wall.classList.add("is-live");
+    const tweens = stacks.map((st, i) => G.to(st, { yPercent: -50, repeat: -1, ease: "none", duration: durs[i], paused: true }));
+    HOME.cols = tweens;
+    let inView = false, boost = 1, boostT = 1, hov = 1, hovT = 1, idle = 0, userOff = false;
+    const tick = () => {
+      boost += (boostT - boost) * 0.12;
+      hov += (hovT - hov) * 0.15;
+      const ts = boost * hov;
+      tweens.forEach((t) => t.timeScale(ts));
+    };
+    const sync = () => {
+      const on = inView && !userOff && !S.modal && !document.hidden;
+      tweens.forEach((t) => t.paused(!on));
+      G.ticker.remove(tick);
+      if (on) G.ticker.add(tick);
+    };
+    const view = ST.create({ trigger: wall, start: "top bottom", end: "bottom top", onToggle: (s) => { inView = s.isActive; sync(); } });
+    inView = view.isActive;
+    const vel = ST.create({ start: 0, end: "max", onUpdate: (s) => {
+      boostT = 1 + G.utils.clamp(0, 2, Math.abs(s.getVelocity()) / 1200);
+      clearTimeout(idle);
+      idle = setTimeout(() => { boostT = 1; }, 200);
+    } });
+    const field = $(".vol-wall", wall) || wall;                    // hover and focus act on the columns, not the heading beside them
+    const mouse = (v) => (e) => { if (e.pointerType === "mouse") hovT = v; };
+    field.addEventListener("pointerenter", mouse(0.3), { signal });
+    field.addEventListener("pointerleave", mouse(1), { signal });
+    field.addEventListener("focusin", () => { hovT = 0; }, { signal });
+    field.addEventListener("focusout", () => { hovT = 1; }, { signal });
+    const btn = $(".vol-pause", wall);
+    if (btn) btn.addEventListener("click", () => {
+      userOff = !userOff;
+      btn.setAttribute("aria-pressed", String(userOff));
+      btn.setAttribute("aria-label", userOff ? "Play moving work" : "Pause moving work");
+      sync();
+    }, { signal });
+    document.addEventListener("visibilitychange", sync, { signal });
+    const pl = $("#player");
+    const mo = pl && "MutationObserver" in window ? new MutationObserver(sync) : null;
+    if (mo) mo.observe(pl, { attributes: true, attributeFilter: ["open"] });
+    sync();
     return {
       destroy() {
-        [tw, lw].forEach((t) => { if (t) { if (t.scrollTrigger) t.scrollTrigger.kill(true); t.kill(); } });
-        G.set([track, line].filter(Boolean), { clearProps: "transform" });
-        el.style.overflowX = "";
-        setNative(r);
+        clearTimeout(idle);
+        G.ticker.remove(tick);
+        if (mo) mo.disconnect();
+        view.kill();
+        vel.kill();
+        tweens.forEach((t) => t.kill());
+        G.set(stacks, { clearProps: "transform" });
+        clones.forEach((c) => c.remove());
+        wall.classList.remove("is-live");
+        HOME.cols = [];
       },
     };
   }
 
-  /* ================= hero wall: strips play, drift, speed up with scroll, slow on hover ================= */
-  const W = { vis: !hasIO, loaded: document.readyState === "complete", paused: false, modal: false };
-
-  function wallSync() {
-    const playOk = W.loaded && W.vis && !W.paused && !document.hidden && !W.modal && !lowData();
-    HOME.wall.videos.forEach((v) => { if (playOk) quiet(v.play()); else if (!v.paused) v.pause(); });
-    const run = W.vis && !W.paused && !document.hidden && !W.modal;
-    HOME.wall.tweens.forEach((t) => t.paused(!run));
-  }
-
-  function initWall() {
-    const wall = $(".wall");
-    if (!wall) return;
-    if (matchMedia("(max-width: 599px)").matches) $$(".wall-row", wall).slice(1).forEach((row) => row.remove());   // phone: one row, second never loads
-    HOME.wall.tracks = $$(".wall-track", wall);
-    HOME.wall.videos = $$("video", wall);
-    HOME.wall.videos.forEach((v) => {
-      v.muted = true;
-      if (v.readyState >= 1) refreshSoon(); else v.addEventListener("loadedmetadata", refreshSoon, { once: true });
-    });
-    const hero = $("#top") || wall;
-    if (hasIO) new IntersectionObserver(([e]) => { W.vis = e.isIntersecting; wallSync(); }).observe(hero);
-    const pl = $("#player");
-    if (pl && "MutationObserver" in window) new MutationObserver(() => { W.modal = pl.open; wallSync(); }).observe(pl, { attributes: true, attributeFilter: ["open"] });
-    document.addEventListener("visibilitychange", wallSync);
-    window.addEventListener("load", () => { W.loaded = true; wallSync(); });
-    const btn = $("[data-wall-pause]");
-    if (btn) btn.addEventListener("click", () => {
-      W.paused = !W.paused;
-      btn.setAttribute("aria-pressed", String(W.paused));
-      btn.setAttribute("aria-label", W.paused ? "Play background" : "Pause background");
-      wallSync();
-    });
-    wallSync();
-  }
-
-  function wallDrift(signal) {
-    const tracks = HOME.wall.tracks;
-    const hero = $("#top");
-    if (!tracks.length || !hero) return;
-    const tweens = tracks.map((t, i) => G.fromTo(t, { xPercent: i % 2 ? -50 : 0 }, { xPercent: i % 2 ? 0 : -50, ease: "none", duration: i % 2 ? 80 : 64, repeat: -1 }));
-    HOME.wall.tweens = tweens;
-    let hover = false, kick = 0;
-    const speed = (ts, d) => G.to(tweens, { timeScale: ts, duration: d, overwrite: true });
-    ST.create({ trigger: hero, start: "top top", end: "bottom top", onUpdate: (s) => {
-      const ts = G.utils.clamp(1, 3, 1 + Math.abs(s.getVelocity()) / 900);
-      if (ts < 1.05) return;
-      tweens.forEach((t) => t.timeScale(ts));
-      clearTimeout(kick);
-      kick = setTimeout(() => speed(hover ? 0.35 : 1, 0.8), 80);
-    } });
-    const mouse = (on) => (e) => { if (e.pointerType === "mouse") { hover = on; speed(on ? 0.35 : 1, 0.6); } };
-    hero.addEventListener("pointerenter", mouse(true), { signal });
-    hero.addEventListener("pointerleave", mouse(false), { signal });
-    signal.addEventListener("abort", () => { clearTimeout(kick); HOME.wall.tweens = []; });
-    wallSync();
-  }
-
-  /* ================= hero intro: runs once, outside matchMedia so a breakpoint change cannot re-hide anything =================
-     It never waits for fonts, video or load. A plain timer (not the GSAP ticker, which needs a painted frame) forces
-     everything visible 800ms after this script runs, so the hero text can never stay hidden. */
-  const INTRO_MAX_MS = 800;
-  function heroIntro() {
-    if (RM.matches) return;
-    const wall = $(".wall"), h1 = $("#h1");
-    const small = [$(".hero-name"), $(".hero-lead")].filter(Boolean);
-    const btns = $$(".hero-cta > *");
-    const all = [wall, h1, ...small, ...btns].filter(Boolean);
-    if (!all.length) return;
-    let split = null;
-    let tl = null;
-    let over = false;
-    const finish = () => {                                         // idempotent: always ends fully visible, no transforms
-      if (over) return;
-      over = true;
-      clearTimeout(safety);
-      if (tl) tl.kill();
-      if (split) split.revert();
-      G.set(all, { autoAlpha: 1 });
-      G.set(all.filter((n) => n !== wall), { clearProps: "transform" });   // the wall keeps its parallax transform
-    };
-    const safety = setTimeout(finish, INTRO_MAX_MS);
-    try {
-      G.set(all, { autoAlpha: 0 });
-      tl = G.timeline({ defaults: { ease: "power3.out" }, onComplete: finish });
-      if (wall) tl.to(wall, { autoAlpha: 1, duration: 0.5, ease: "power2.out" }, 0);
-      if (h1) {
-        G.set(h1, { autoAlpha: 1 });
-        if (window.SplitText) split = window.SplitText.create(h1, { type: "lines", mask: "lines" });
-        if (split) tl.from(split.lines, { yPercent: 100, duration: 0.6, ease: "expo.out", stagger: 0.06 }, 0);
-        else tl.from(h1, { y: 14, autoAlpha: 0, duration: 0.5 }, 0);
-      }
-      if (small.length) tl.fromTo(small, { y: 14, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.45 }, 0.15);
-      if (btns.length) tl.fromTo(btns, { y: 10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.4 }, 0.3);
-    } catch (err) { finish(); }
-    RM.addEventListener("change", () => { if (RM.matches) finish(); });
-  }
-
-  /* ================= case, reveals, extras ================= */
-  function caseTimeline() {                                        // desktop only: the case pins and beats light up in turn
-    const sec = $("#longform");
-    const beats = sec ? $$("[data-beat]", sec) : [];
-    if (!beats.length) return;
-    G.set(beats, { autoAlpha: 0.3, x: 24 });
-    const tl = G.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: sec, start: "top top", end: "+=1400", pin: true, scrub: 0.6 } });
-    beats.forEach((b, i) => {
-      tl.to(b, { autoAlpha: 1, x: 0, duration: 1 }, i);
-      if (i) tl.to(beats[i - 1], { autoAlpha: 0.45, duration: 1 }, i);
-    });
-    tl.to({}, { duration: 0.5 });
-  }
-
-  function revealBatch(desktop) {
-    const els = $$(".rv").filter((el) => !(desktop && el.closest("[data-beat]")));
+  /* ================= reveals, dock, contact ================= */
+  function revealBatch() {                                         // text only, never fully hidden: .35 -> 1, once
+    const els = $$(".rv");
     if (!els.length) return;
-    G.set(els, { autoAlpha: 0, y: 20 });
-    ST.batch(els, { start: "top 88%", once: true,
-      onEnter: (b) => G.to(b, { autoAlpha: 1, y: 0, stagger: 0.08, duration: 0.7, ease: "power3.out" }) });
+    G.set(els, { autoAlpha: 0.35, y: 12 });
+    const show = (b, sts, anim) => {
+      if (anim) G.to(b, { autoAlpha: 1, y: 0, stagger: 0.05, duration: 0.45, ease: "power3.out", overwrite: true });
+      else G.set(b, { autoAlpha: 1, y: 0, overwrite: true });
+      sts.forEach((s) => s.kill());
+    };
+    ST.batch(els, { start: "top 100%", onEnter: (b, sts) => show(b, sts, true), onLeave: (b, sts) => show(b, sts, false) });
   }
 
-  function initCaseVideo() {
-    const vid = $("#longform video");
-    if (!vid || !hasIO) return;
-    vid.muted = true;
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !RM.matches && !lowData() && !W.modal) quiet(vid.play()); else vid.pause();
-    }, { threshold: 0.4 }).observe(vid);
-  }
-
-  function initDock() {                                            // phone bottom bar shows once the hero is behind us
+  function initDock() {                                            // phone bottom bar shows once the hero is behind us, and steps aside at the contact buttons
     const hero = $("#top");
+    const contact = $("#contact");
+    if (contact && hasIO) new IntersectionObserver(([e]) => document.body.classList.toggle("at-contact", e.isIntersecting), { rootMargin: "0px 0px -12% 0px" }).observe(contact);
     if (!hero) return;
     if (ST) { ST.create({ trigger: hero, start: "bottom 80%", end: "max", toggleClass: { targets: document.body, className: "past-hero" } }); return; }
     if (hasIO) new IntersectionObserver(([e]) => document.body.classList.toggle("past-hero", !e.isIntersecting && e.boundingClientRect.top < 0)).observe(hero);
+  }
+
+  function initContact() {
+    $$("[data-contact-email]").forEach((a) => {
+      a.href = "mailto:" + CONTACT.email;
+      if (a.hasAttribute("data-contact-text")) a.textContent = CONTACT.email;
+    });
+    $$("[data-contact-telegram]").forEach((a) => { a.href = CONTACT.telegram; });
+    document.addEventListener("click", (e) => {                    // "Work with me" inside the player: close it, then go to the contact section
+      const a = e.target.closest && e.target.closest("a[data-contact]");
+      const pl = $("#player");
+      if (!a || !pl || !pl.open) return;
+      e.preventDefault();
+      const close = $("#plClose");
+      if (close) close.click();
+      setTimeout(() => { const c = $("#contact"); if (c) c.scrollIntoView({ behavior: smooth(), block: "start" }); }, 420);
+    });
   }
 
   /* ================= matchMedia: everything scroll- or motion-driven ================= */
@@ -388,16 +436,12 @@
       const { desktop, ok, reduce } = ctx.conditions;
       const ac = new AbortController();
       const parts = [];
-      if (ok) {
-        wallDrift(ac.signal);
-        if (desktop && $(".wall") && $("#top")) {
-          G.to(".wall", { yPercent: -10, ease: "none", scrollTrigger: { trigger: "#top", start: "top top", end: "bottom top", scrub: true } });
-        }
+      if (ok && desktop && $(".hm-film-px") && $("#top")) {
+        G.to(".hm-film-px", { yPercent: -8, ease: "none", scrollTrigger: { trigger: "#top", start: "top top", end: "bottom top", scrub: true } });
       }
-      rails.filter((r) => r.kind !== "pan").forEach((r) => parts.push(buildLoop(r, reduce, ac.signal)));   // page order: top to bottom
-      if (ok && desktop) caseTimeline();
-      if (ok && desktop) rails.filter((r) => r.kind === "pan").forEach((r) => { const p = buildPan(r, ac.signal); if (p) parts.push(p); });
-      if (ok) revealBatch(desktop);
+      if (ok) { const w = wallColumns(ac.signal); if (w) parts.push(w); }
+      rails.forEach((r) => parts.push(buildLoop(r, reduce, ac.signal)));      // page order: top to bottom
+      if (ok) revealBatch();
       const refit = () => { if (!ac.signal.aborted) parts.forEach((p) => p.refit && p.refit()); };
       let w = innerWidth;
       window.addEventListener("resize", debounce(() => { if (innerWidth !== w) { w = innerWidth; refit(); } }, 250), { signal: ac.signal });
@@ -408,23 +452,30 @@
   }
 
   const failOpen = () => {                                         // anything went wrong: show everything, scroll natively
-    $$(".wall, #h1, .hero-name, .hero-lead, .hero-cta > *, .rv, [data-beat]").forEach((n) => {
-      n.style.opacity = "";
-      n.style.visibility = "";
-      n.style.transform = "";
-    });
+    $$(".rv, .hm-copy > *").forEach((n) => { n.style.opacity = ""; n.style.visibility = ""; n.style.transform = ""; });
     $$("[data-rail]").forEach((n) => { n.style.overflowX = ""; });
+    const w = $(".vol");
+    if (w) w.classList.remove("is-live");
   };
 
+  function warmPosters() {                                         // after load, fetch every remaining poster so fast scrolling never lands on an empty tile
+    const go = () => $$("img[loading=lazy]").forEach((i) => { i.loading = "eager"; });
+    const idle = () => (window.requestIdleCallback ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 1200));
+    if (document.readyState === "complete") idle(); else window.addEventListener("load", idle, { once: true });
+  }
+
   function start() {
+    resolveMedia();
+    warmPosters();
+    initContact();
     const rails = $$("[data-rail]").map(initRail).filter(Boolean);
-    initWall();
-    initCaseVideo();
+    initScheduler();
+    initHero();
+    schedule();
     if (!G || !ST) { initDock(); return; }
     try {
-      G.registerPlugin(...[ST, window.Draggable, window.InertiaPlugin, window.SplitText].filter(Boolean));
+      G.registerPlugin(...[ST, window.Draggable, window.InertiaPlugin].filter(Boolean));
       initDock();
-      heroIntro();
       motion(rails);
       window.addEventListener("load", refreshSoon);
     } catch (err) {
