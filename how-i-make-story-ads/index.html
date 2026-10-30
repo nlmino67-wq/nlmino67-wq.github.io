@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Nico Tan Leonardia · How I make AI story ads</title>
+<meta name="description" content="The seven steps behind an AI story ad, shown on real work: script, characters, stills, animation, voices, product and edit.">
+<meta name="theme-color" content="#09090B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="how.css">
+</head>
+<body>
+<header class="bar">
+ <a class="name" href="../ai-video-ads/">Nico Tan Leonardia</a>
+ <a class="more" href="../ai-video-ads/">All AI video ads</a>
+</header>
+<main>
+ <section class="hero">
+  <div>
+   <h1>How I would make <em>your story ad.</em></h1>
+   <p class="lead">Seven steps, each shown on my own work. PAPERWING is my 3D animated piece for a fictional brand. The drama is a 5 minute client ad.</p>
+  </div>
+  <figure class="phone">
+   <video controls playsinline preload="none" poster="../p/anim_paperwing.jpg" width="720" height="1280" src="../v/anim_paperwing.mp4"></video>
+   <figcaption>PAPERWING: The Scenic Route, 57 seconds</figcaption>
+  </figure>
+ </section>
+
+ <ol class="steps">
+  <li class="step step--text">
+   <span class="n" aria-hidden="true">1</span>
+   <div class="copy">
+    <h2>Script into a shot list</h2>
+    <p>Written with Claude and Gemini, using only claims from your product page. Each line says what we see, what is said and how long it holds. My 5 minute drama was 75 shots, so a 6 minute ad is about 95.</p>
+   </div>
+  </li>
+
+  <li class="step">
+   <span class="n" aria-hidden="true">2</span>
+   <div class="copy">
+    <h2>Lock the characters</h2>
+    <p>Character sheets in Krea 2. You approve these before anything moves, because every later shot is built from them. On a transformation story, the before and after each get a sheet.</p>
+   </div>
+   <figure class="wide"><img src="../p/how_chars.jpg" alt="Four locked 3D character designs from PAPERWING: a girl in a yellow raincoat, a grandfather, a pigeon and a corgi." width="1680" height="630" loading="lazy" decoding="async"><figcaption>The locked PAPERWING cast</figcaption></figure>
+  </li>
+
+  <li class="step">
+   <span class="n" aria-hidden="true">3</span>
+   <div class="copy">
+    <h2>Every shot as a still</h2>
+    <p>Krea 2 and Qwen Image Edit, with the character sheet as the reference. PAPERWING had four takes per shot and I kept the best. Inside-the-body shots are built the same way.</p>
+   </div>
+   <figure class="wide"><img src="../p/how_stills.jpg" alt="Six chosen stills from PAPERWING in which the same characters stay on model from shot to shot." width="1920" height="568" loading="lazy" decoding="async"><figcaption>Six of the 17 chosen stills, same faces throughout</figcaption></figure>
+  </li>
+
+  <li class="step step--split">
+   <span class="n" aria-hidden="true">4</span>
+   <div class="copy">
+    <h2>Animate each still</h2>
+    <p>LTX 2.5 and MiniMax H3 on my RTX 4090, with Kling 3.0 or Veo for shots that need more. A rejected shot goes back and gets generated again.</p>
+   </div>
+   <figure class="phone"><video controls playsinline preload="none" poster="../p/anim_making.jpg" width="720" height="1280" src="../v/anim_making.mp4"></video><figcaption>How PAPERWING was made, 12 seconds</figcaption></figure>
+  </li>
+
+  <li class="step step--split">
+   <span class="n" aria-hidden="true">5</span>
+   <div class="copy">
+    <h2>Voices and lip sync</h2>
+    <p>Voices in ElevenLabs, with lip sync on the talking shots. The drama has three characters, a voice for each and every line lip-synced. PAPERWING is music only, so this step is shown on the drama.</p>
+   </div>
+   <figure class="phone"><video controls playsinline preload="none" poster="../p/drama_skincare_product.jpg" width="720" height="1280" src="../v/drama_skincare_product.mp4"></video><figcaption>Scenes from the drama, 55 seconds, in Italian</figcaption></figure>
+  </li>
+
+  <li class="step">
+   <span class="n" aria-hidden="true">6</span>
+   <div class="copy">
+    <h2>Your product as a 3D model</h2>
+    <p>I rebuild it at real size from your photos and label artwork, then use it as the reference for every product shot. AI never writes the label text. Drag the model to turn it.</p>
+   </div>
+   <div class="pair">
+    <div class="stage"><model-viewer src="../m/rujada_stick_closed.glb" alt="3D model of a client's skincare stick" camera-controls auto-rotate rotation-per-second="18deg" shadow-intensity="0.8" exposure="1.05" environment-image="neutral" camera-orbit="25deg 78deg 150%" interaction-prompt="none"></model-viewer></div>
+    <figure><img src="../p/id_r047.jpg" alt="Before and after: a different product in the hands, then the client's stick with its label in the same grip." width="1280" height="720" loading="lazy" decoding="async"><figcaption>Original shot, then delivered with the client's product</figcaption></figure>
+   </div>
+  </li>
+
+  <li class="step step--text">
+   <span class="n" aria-hidden="true">7</span>
+   <div class="copy">
+    <h2>Edit and check</h2>
+    <p>Edit in Premiere Pro with highlighted captions, music and sound effects. Then I check every caption against the audio, every shot for errors in hands, faces, mouths and labels, and every claim against your product page. You see it after that.</p>
+   </div>
+  </li>
+ </ol>
+</main>
+<footer class="foot">
+ <p>AI-generated work is labelled. Client work is shown with permission.</p>
+ <p>&copy; 2026 Nico Tan Leonardia</p>
+</footer>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+</body>
+</html>
