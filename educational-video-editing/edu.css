@@ -1,8 +1,28 @@
 /* Educational video editing page. Loads after fin.css. */
-.edu-sub{margin-top:var(--s-7)}
-.vid-row.edu-one-v{grid-template-columns:minmax(0,1fr);max-width:300px}
-@media (min-width:720px){
- #presenter .vid-row{grid-template-columns:repeat(2,minmax(0,1fr))}
- #lessons .vid-row.edu-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wip-note{margin-top:var(--s-5);max-width:62ch}
+.edu-flow{margin-top:var(--s-8)}
+.edu-flow .sub-h{margin:0 0 var(--s-5)}
+.edu-stat{margin-top:var(--s-5);max-width:70ch}
+
+/* Rolling rows (same look as the main page's rows.css, without its chapter rail) */
+.lrow{margin-top:var(--s-7)}
+.lrow-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s-5);margin-bottom:var(--s-5)}
+.lrow-t{font:400 var(--t-case)/1.04 var(--f-display);letter-spacing:-.01em;margin:0}
+.lrow-p{margin:var(--s-2) 0 0;max-width:62ch;color:var(--soft);font-size:var(--t-body);line-height:1.5}
+.car-ctl{display:flex;gap:var(--s-2);flex:none}
+.car-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid var(--ctl-border);background:transparent;color:var(--ink);cursor:pointer;transition:background-color .18s,border-color .18s}
+.car-btn:hover{background:var(--ctl-bg);border-color:var(--ring-hover)}
+.car-btn:active{background:var(--line-2)}
+.car-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.car-btn .i{width:20px;height:20px}
+.loop{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.loop::-webkit-scrollbar{display:none}
+.loop-track{display:flex;width:max-content}
+.loop-set{display:flex;align-items:flex-start;gap:var(--gap-tile);padding-right:var(--gap-tile)}
+.loop-set>.tile{flex:none;width:clamp(180px,19vw,236px)}
+.loop-set>.tile:has([data-ar="16x9"]){width:clamp(290px,36vw,460px)}
+@media (prefers-reduced-motion:reduce){.loop-set[aria-hidden="true"]{display:none}}
+@media (max-width:599px){
+ .lrow-head{align-items:flex-start;flex-direction:column;gap:var(--s-3)}
+ .car-ctl{align-self:flex-end;margin-top:calc(-1 * var(--s-2))}
 }
-.wip-note{margin-top:var(--s-4);max-width:62ch}
