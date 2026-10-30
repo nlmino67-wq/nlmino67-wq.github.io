@@ -22,6 +22,8 @@
 .loop-set>.tile{flex:none;width:clamp(180px,19vw,236px)}
 .loop-set>.tile:has([data-ar="16x9"]){width:clamp(290px,36vw,460px)}
 @media (prefers-reduced-motion:reduce){.loop-set[aria-hidden="true"]{display:none}}
+.lrow.is-static .car-ctl{visibility:hidden}
+.lrow.is-static .loop{-webkit-mask-image:none;mask-image:none}
 @media (max-width:599px){
  .lrow-head{align-items:flex-start;flex-direction:column;gap:var(--s-3)}
  .car-ctl{align-self:flex-end;margin-top:calc(-1 * var(--s-2))}

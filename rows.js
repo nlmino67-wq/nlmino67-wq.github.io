@@ -16,6 +16,13 @@
 
     /* enough copies that one full set can always scroll past, even on very wide screens */
     const fill = () => {
+      const fits = setW() <= track.clientWidth * 0.8;   /* clearly short rows would show the same tile twice */
+      row.classList.toggle("is-static", fits);
+      if (fits) {
+        while (inner.children.length > 1) inner.lastElementChild.remove();
+        pos = 0;
+        return;
+      }
       while (inner.children.length < 2 || inner.scrollWidth < setW() + track.clientWidth + 8) {
         const c = set.cloneNode(true);
         c.setAttribute("aria-hidden", "true");
@@ -55,7 +62,7 @@
       const dt = Math.min(now - last, 64) / 1000;
       last = now;
       if (tween) tween(now);
-      else if (seen && !reduce && !hover && now > hold && !document.hidden) pos = wrap(pos + speed * dt);
+      else if (seen && !reduce && !hover && now > hold && !document.hidden && !row.classList.contains("is-static")) pos = wrap(pos + speed * dt);
       if (Math.abs(track.scrollLeft - pos) > 0.5) write();
       requestAnimationFrame(tick);
     };

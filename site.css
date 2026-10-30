@@ -10,13 +10,13 @@
 @font-face{font-family:"GM Fallback";src:local("Consolas");size-adjust:109%}
 
 :root{
-  --ground:#000000; --panel:#0B0B0C; --ink:#FAFAFA; --soft:#94A3B8; --line:#1C1C1F;
-  --accent:#F8FAFC; --on-accent:#0F172A; --stage:#050506;
-  --panel-2:#121214; --line-2:#2A2A2F; --line-3:#3F3F46; --faint:#7A8494;
-  --accent-hover:#FFFFFF; --accent-press:#E2E8F0;
+  --ground:#09090B; --panel:#0F0F11; --ink:#FAFAFA; --soft:#A1A1AA; --line:#1E1E22;
+  --accent:#FAFAFA; --on-accent:#18181B; --stage:#050506;
+  --panel-2:#121214; --line-2:#2A2A2F; --line-3:#3F3F46; --faint:#8A8A93;
+  --accent-hover:#FFFFFF; --accent-press:#E4E4E7;
   --scrim:rgba(0,0,0,.62);
   --ring:rgba(255,255,255,.08); --ring-hover:rgba(255,255,255,.28);
-  --bar-bg:rgba(0,0,0,.86); --backdrop:rgba(0,0,0,.94);
+  --bar-bg:rgba(9,9,11,.86); --backdrop:rgba(9,9,11,.94);
   --ctl-bg:rgba(255,255,255,.08); --ctl-border:rgba(255,255,255,.16);
   --tally:#FF5A36;
 
@@ -48,7 +48,7 @@
 }
 @media (min-width:900px){ :root{ --t-body:1.0625rem; } }
 @media (min-width:1024px){ :root{ --t-title:1rem; } }
-@media (prefers-contrast:more){ :root{ --soft:#CBD5E1; --faint:#A3AEBD; --line-2:#3F3F46; --ring:rgba(255,255,255,.28); } }
+@media (prefers-contrast:more){ :root{ --soft:#D4D4D8; --faint:#B4B4BC; --line-2:#3F3F46; --ring:rgba(255,255,255,.28); } }
 
 /* ---------- 2. Base ---------- */
 *,*::before,*::after{box-sizing:border-box}
@@ -58,6 +58,11 @@ html{background:var(--ground);scroll-padding-top:116px;overflow-x:clip;scrollbar
 html:has(dialog[open]){overflow:hidden}
 body{margin:0;background:var(--ground);color:var(--ink);font:400 var(--t-body)/1.6 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
 img,video,iframe{display:block;max-width:100%}
+/* film grain over the whole page: breaks the flat digital black, never takes clicks */
+body::after{content:"";position:fixed;inset:0;z-index:var(--z-skip);pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media (prefers-contrast:more),(forced-colors:active){ body::after{display:none} }
+
 a{color:inherit}
 h1,h2,h3{margin:0;font-weight:400;text-wrap:balance} p{margin:0;text-wrap:pretty}
 em{font-style:italic}

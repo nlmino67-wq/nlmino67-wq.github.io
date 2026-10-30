@@ -20,6 +20,9 @@
 .loop-set>.tile:has([data-ar="3x4"]),.loop-set>.tile--static{width:clamp(200px,22vw,270px)}
 .loop-set>.tile:has([data-ar="16x9"]){width:clamp(290px,36vw,460px)}
 @media (prefers-reduced-motion:reduce){.loop-set[aria-hidden="true"]{display:none}}
+/* rows whose items already fit on screen stand still: no copies, no arrows, no edge fade */
+.lrow.is-static .car-ctl{visibility:hidden}
+.lrow.is-static .loop{-webkit-mask-image:none;mask-image:none}
 
 @media (max-width:599px){
   .lrow{margin-top:var(--s-7)}
@@ -43,4 +46,5 @@
   .secnav a[aria-current="true"]{color:var(--ink);font-weight:600}
   .secnav a[aria-current="true"]::before{background:var(--tally)}
   .secnav a:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+  .sec-head .jump{display:none}   /* the rail already lists every style */
 }
