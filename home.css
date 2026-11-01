@@ -42,6 +42,12 @@ main .tlink:hover,.pl-micro .tlink:hover{text-decoration-color:var(--ink)}
 .secnav li:nth-child(10){margin-top:0}
 .secnav a{font-size:14px}
 
+/* ---------- Motion background: one fixed layer behind the desk and the plain sections; the wall and panels stay opaque ---------- */
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;contain:strict;background:var(--ground)}
+.bg canvas{display:block;width:100%;height:100%}
+.js body{background:transparent}
+.js .hm-hero,.js .hm-desk{background:transparent}
+
 /* ---------- Hero: a solid desk on the left, a moving wall on the right. They never overlap. ---------- */
 .hm-hero{display:grid;grid-template-columns:minmax(0,1fr);background:var(--ground);isolation:isolate}
 .hm-desk{position:relative;z-index:2;container-type:inline-size;background:var(--ground);padding:16px var(--gutter) 32px;

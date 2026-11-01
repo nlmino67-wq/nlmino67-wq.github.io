@@ -268,7 +268,39 @@
     if (top) new IntersectionObserver(([e]) => { S.heroRatio = e.isIntersecting ? e.intersectionRatio : 0; schedule(); }, { threshold: [0, 0.05, 0.35] }).observe(top);
     document.addEventListener("visibilitychange", schedule);
     const pl = $("#player");
-    if (pl && "MutationObserver" in window) new MutationObserver(() => { S.modal = pl.open; schedule(); }).observe(pl, { attributes: true, attributeFilter: ["open"] });
+    if (pl && "MutationObserver" in window) new MutationObserver(() => { S.modal = pl.open; schedule(); if (bgSync) bgSync(); }).observe(pl, { attributes: true, attributeFilter: ["open"] });
+  }
+
+  /* ================= motion background (bg.js): calm contour map; static frame or plain ground whenever motion is unwelcome ================= */
+  let bgSync = null;
+  function initBackground() {
+    const B = window.NICO_BG;
+    if (!B || lowData()) return;
+    const calm = () => RM.matches || matchMedia("(pointer: coarse)").matches || innerWidth < 768 || (navigator.hardwareConcurrency || 4) <= 2;
+    let ptr = null;
+    const wirePointer = () => {                                    // cursor light: desktop mouse only, nothing bound otherwise
+      if (ptr) ptr.abort();
+      ptr = null;
+      if (B.mode !== "live") return;
+      ptr = new AbortController();
+      window.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") B.pointer(e.clientX, e.clientY); }, { passive: true, signal: ptr.signal });
+    };
+    const sync = () => { if (B.mode === "live" && !document.hidden && !S.modal) B.start(); else B.stop(); };
+    const boot = () => {
+      let ok = false;
+      try { ok = B.init({ container: $("#bg"), mode: calm() ? "static" : "live" }); } catch (err) { ok = false; }
+      if (!ok) return;
+      HOME.bg = { get mode() { return B.mode; }, get frames() { return B.frames; }, get running() { return B.running; }, measure: (el) => B.measure(el) };
+      bgSync = sync;
+      const apply = () => { const m = calm() ? "static" : "live"; if (m !== B.mode) { B.setMode(m); wirePointer(); } sync(); };
+      wirePointer();
+      document.addEventListener("visibilitychange", sync);
+      if (RM.addEventListener) RM.addEventListener("change", apply);
+      window.addEventListener("resize", debounce(() => { B.resize(); apply(); }, 250));
+      sync();
+    };
+    const idle = () => (window.requestIdleCallback ? requestIdleCallback(boot, { timeout: 2000 }) : setTimeout(boot, 600));
+    if (document.readyState === "complete") idle(); else window.addEventListener("load", idle, { once: true });
   }
 
   /* ================= chapter rail scrollspy ================= */
@@ -620,6 +652,7 @@
     const rails = $$("[data-rail]").map(initRail).filter(Boolean);
     initScheduler();
     schedule();
+    initBackground();
     if (!G || !ST) { initDock(); return; }
     try {
       G.registerPlugin(...[ST, window.Draggable, window.InertiaPlugin, window.SplitText].filter(Boolean));
