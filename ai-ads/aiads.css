@@ -80,3 +80,17 @@
  .secnav a:focus-visible{outline:2px solid #50c6d9;outline-offset:-3px}
 }
 #deliverables .sheet-h,#deliverables .sheet-rows dd{color:#fff}
+
+/* language picker under the live FitFast ads */
+.lang-pick{margin-top:clamp(1.5rem,3vw,2.25rem);display:grid;gap:1rem}
+.lang-pick .sub-h{margin:0 0 .25rem}
+.lang-row{display:grid;grid-template-columns:7.5rem 1fr;gap:.75rem;align-items:center}
+.lang-k{margin:0;font-size:.875rem;color:var(--muted,#a1a1aa)}
+.lang-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.lang-chip{display:inline-flex;align-items:baseline;gap:.4rem;padding:.5rem .8rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:inherit;text-decoration:none;font-size:.875rem;background:rgba(255,255,255,.03);transition:background-color .15s,border-color .15s,transform .15s}
+.lang-chip b{font-family:"Geist Mono",ui-monospace,monospace;font-weight:500;font-size:.75rem;letter-spacing:.04em}
+.lang-chip .lang-name{color:var(--muted,#a1a1aa)}
+.lang-chip:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.32)}
+.lang-chip:active{transform:scale(.97)}
+.lang-chip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media (max-width:640px){.lang-row{grid-template-columns:1fr;gap:.4rem}.lang-chip .lang-name{display:none}.lang-chip{padding:.55rem .85rem}}
