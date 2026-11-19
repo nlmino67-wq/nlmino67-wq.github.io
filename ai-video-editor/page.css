@@ -1,0 +1,103 @@
+/* /ai-video-editor/ only. Loads after ../site.css, ../rows.css and ../home.css and reuses their tokens and components.
+   Adds: tighter section rhythm, the FitFast drama and singing blocks with the language picker, the workflow strip,
+   museum, architecture, site and drone layouts, and the tools list. Same rules as home.css: Geist only, nothing under 14px. */
+
+:root{--sec:clamp(3rem,2.2rem + 3vw,4.75rem)}
+.hm-head{gap:12px;margin-bottom:clamp(22px,3vw,40px)}
+.hm-head p{font-size:17px}
+.sub-k{margin:clamp(40px,5vw,64px) 0 clamp(16px,2vw,24px);font:600 clamp(1.125rem,1rem + .5vw,1.375rem)/1.25 var(--f-sans);letter-spacing:-.01em}
+.secnav > ol:first-child{margin-top:0}
+
+/* ---------- Language picker ---------- */
+.lang-k{margin:0 0 12px;font:500 14px/1.3 var(--f-sans);color:var(--soft)}
+.lang-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lang-chip{display:grid;gap:2px;align-content:center;min-height:64px;padding:12px 16px;border:1px solid var(--line-2);border-radius:12px;background:var(--panel-2);color:var(--ink);text-decoration:none;
+  transition:border-color var(--d-fast) var(--ease-out),background-color var(--d-fast) var(--ease-out),transform var(--d-press) var(--ease-out)}
+.lang-chip b{font:600 clamp(1.25rem,1rem + .8vw,1.75rem)/1 var(--f-sans);letter-spacing:-.02em}
+.lang-chip span{font:400 14px/1.3 var(--f-sans);color:var(--soft)}
+.lang-chip:hover{border-color:var(--ink);background:var(--ctl-bg)}
+.lang-chip:active{transform:scale(.98)}
+.lang-chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lang-grid.is-sm .lang-chip{min-height:52px;padding:8px 12px}
+.lang-grid.is-sm .lang-chip b{font-size:18px}
+
+/* ---------- AI dramas: FitFast first, then the Italian drama ---------- */
+.ff-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,5vw,88px);align-items:center}
+.ff-phone .tile{width:min(44vw,260px)}
+.ff-side{display:grid;gap:clamp(22px,2.6vw,32px);align-content:center}
+.ff-row{display:grid;grid-template-columns:clamp(116px,10vw,150px) minmax(0,1fr);gap:clamp(16px,2.4vw,32px);align-items:start}
+.ff-mini .phone-tile{gap:14px}
+.ff-mini .phone-tile .frame{border-radius:20px}
+.ff-mini .chip-v{left:10px;top:10px;padding:4px 9px}
+.ff-mini .tt{font-size:14px}
+.sk-grid{margin-top:clamp(40px,6vw,72px);padding-top:clamp(32px,4.5vw,56px);border-top:1px solid var(--line-2)}
+.sk-big{margin-bottom:18px}
+@media (min-width:1024px){ .ff-phone .tile{width:calc(min(66dvh,560px) * .5625)} }
+@media (max-width:899px){
+  .ff-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .ff-phone .tile{width:min(62vw,260px)}
+}
+@media (max-width:599px){
+  .ff-row{grid-template-columns:minmax(0,1fr)}
+  .ff-mini{width:min(44vw,170px)}
+}
+
+/* ---------- AI music ad ---------- */
+.mu-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,5vw,88px);align-items:center}
+.mu-phone .tile{width:min(44vw,260px)}
+.mu-side{display:grid;gap:clamp(28px,3.4vw,40px);max-width:640px}
+@media (min-width:1024px){ .mu-phone .tile{width:calc(min(66dvh,560px) * .5625)} }
+@media (max-width:899px){
+  .mu-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .mu-phone .tile{width:min(62vw,260px)}
+}
+
+/* ---------- Local AI workflows strip ---------- */
+.wf-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);margin:0 0 clamp(40px,5vw,64px);padding:0;list-style:none}
+.wf-tile{gap:10px}
+.hm-ugc .rail{margin-top:clamp(32px,4.5vw,56px)}
+.hm-ugc .hm-tools{margin-top:16px}
+@media (max-width:899px){ .wf-row{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* ---------- Museum ---------- */
+.mus-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
+.mus-side{display:grid;gap:clamp(24px,3vw,36px)}
+.stills-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.2vw,16px);margin:clamp(24px,3vw,36px) 0 0;padding:0;list-style:none}
+.mus-note{margin-top:16px}
+@media (max-width:899px){
+  .mus-grid{grid-template-columns:minmax(0,1fr)}
+  .mus-side{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+  .stills-row{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin;scrollbar-color:var(--line-3) transparent}
+  .stills-row > li{flex:none;width:min(64vw,300px);scroll-snap-align:start}
+}
+@media (max-width:599px){ .mus-side{grid-template-columns:minmax(0,1fr)} }
+
+/* ---------- Architecture bento ---------- */
+.arch-bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:start}
+.ab-a{grid-column:1 / 3;grid-row:1 / 3}
+@media (max-width:899px){
+  .arch-bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ab-a{grid-column:1 / -1;grid-row:auto}
+}
+@media (max-width:599px){ .arch-bento{grid-template-columns:minmax(0,1fr)} }
+
+/* ---------- Site videography ---------- */
+.site-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(16px,2.4vw,32px);align-items:start}
+.si-side{display:grid;gap:clamp(16px,2vw,24px)}
+@media (max-width:899px){
+  .site-grid{grid-template-columns:minmax(0,1fr)}
+  .si-side{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (max-width:599px){ .si-side{grid-template-columns:minmax(0,1fr)} }
+
+/* ---------- Drone ---------- */
+.drone-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+@media (max-width:899px){ .drone-grid{grid-template-columns:minmax(0,1fr);gap:28px} }
+
+/* ---------- About: tools ---------- */
+.tools{display:grid;gap:10px}
+.tools-k{margin:0;font:500 14px/1.3 var(--f-sans);color:var(--soft)}
+.tools-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tools-list li{padding:6px 13px;border:1px solid var(--line-2);border-radius:var(--r-pill);font:500 14px/1.3 var(--f-sans);color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){ .lang-chip:active{transform:none} }
